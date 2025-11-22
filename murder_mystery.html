@@ -142,7 +142,7 @@
 
         .suspects-grid {
             display: grid;
-            grid-template-columns: repeat(6, 1fr);
+            grid-template-columns: repeat(3, 1fr);
             gap: 15px;
         }
 
@@ -380,7 +380,7 @@
 
         #suspectOptions {
             display: grid;
-            grid-template-columns: repeat(5, 1fr);
+            grid-template-columns: repeat(3, 1fr);
             gap: 15px;
             margin-top: 30px;
         }
@@ -613,6 +613,73 @@
                 width: 200px;
                 height: 200px;
                 margin: 0 auto;
+            }
+        }
+
+        /* Floor plan styles */
+        .floor-plan {
+            background: rgba(26, 31, 58, 0.6);
+            border: 2px solid var(--border-color);
+            border-radius: 10px;
+            padding: 30px;
+            margin: 20px 0;
+        }
+
+        .floor-plan-title {
+            color: var(--accent-gold);
+            font-size: 1.3em;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .floor-plan-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-template-rows: repeat(3, 120px);
+            gap: 2px;
+            background: var(--border-color);
+            border: 2px solid var(--accent-gold);
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .room {
+            background: rgba(20, 25, 45, 0.9);
+            padding: 15px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            position: relative;
+        }
+
+        .room-name {
+            font-weight: 600;
+            color: var(--accent-gold);
+            margin-bottom: 5px;
+            font-size: 0.95em;
+        }
+
+        .room-detail {
+            font-size: 0.75em;
+            color: var(--text-dim);
+            line-height: 1.4;
+        }
+
+        .room.crime-scene {
+            background: rgba(139, 0, 0, 0.2);
+            border: 2px solid var(--accent-red);
+        }
+
+        .room.crime-scene .room-name {
+            color: var(--accent-red);
+        }
+
+        @media (max-width: 900px) {
+            .floor-plan-grid {
+                grid-template-columns: repeat(2, 1fr);
+                grid-template-rows: repeat(6, 100px);
             }
         }
 
@@ -864,7 +931,7 @@
             text-align: right;
         }
 
-        @media (max-width: 1400px) {
+        @media (max-width: 1200px) {
             .suspects-grid {
                 grid-template-columns: repeat(3, 1fr);
             }
@@ -951,12 +1018,12 @@
 
                 <div class="victim-info">
                     <p><strong>被害者:</strong> 相澤隆一（あいざわ りゅういち）</p>
-                    <p><strong>死亡推定時刻:</strong> 午後10時30分〜11時00分</p>
-                    <p><strong>死因:</strong> 後頭部への鈍器による強打。凶器は未発見。</p>
-                    <p><strong>発見状況:</strong> 書斎にて倒れているところを秘書が発見。窓は施錠され、玄関の電子ロックには不審な記録なし。</p>
+                    <p><strong>死亡推定時刻:</strong> 午後10時15分〜10時30分</p>
+                    <p><strong>死因:</strong> 後頭部への鈍器による強打。凶器は書斎にあった真鍮製の書鎮（現場に残されていた）。</p>
+                    <p><strong>発見状況:</strong> 書斎にて倒れているところを秘書が発見。窓は施錠され、玄関の電子ロックには6人の訪問記録のみ。</p>
                 </div>
 
-                <p>その夜、相澤のペントハウスには5人の人物がいた。全員にアリバイがあり、全員に動機がある。</p>
+                <p>その夜、相澤のペントハウスには6人の人物がいた。全員にアリバイがあり、全員に動機がある。</p>
                 <p>あなたは刑事として、証拠を集め、矛盾を見つけ出し、真犯人を特定しなければならない。</p>
                 <p style="margin-top: 30px; color: var(--accent-gold); font-weight: 600;">注意: このゲームは高度な論理的思考を要求します。全ての証拠と証言を注意深く検証してください。</p>
 
@@ -988,9 +1055,9 @@
                         <div class="suspect-name">山本大輔</div>
                         <div class="suspect-role">弟</div>
                     </div>
-                    <div class="suspect-card info-card" onclick="showDashboard()">
-                        <div class="suspect-name">情報一覧</div>
-                        <div class="suspect-role">ダッシュボード</div>
+                    <div class="suspect-card" onclick="showSuspect(5)">
+                        <div class="suspect-name">黒木誠</div>
+                        <div class="suspect-role">顧問弁護士</div>
                     </div>
                 </div>
             </div>
@@ -1016,10 +1083,17 @@
                                 📋 基本情報
                             </div>
                             <div class="evidence-item">
-                                被害者の自宅は32階建ての最上階。エレベーターは暗証番号式で、その夜のログには5人の容疑者のみが記録されている。
+                                被害者の自宅は32階建ての最上階。エレベーターは暗証番号式で、その夜のログには6人の訪問者のみが記録されている。
                             </div>
                             <div class="evidence-item">
-                                書斎のドアは内側から施錠されていなかった。被害者のスマートフォンには午後10時23分に着信履歴あり。
+                                書斎のドアは内側から施錠されていなかった。凶器の書鎮には犯人の指紋が拭き取られた痕跡があり、現場に残されていた。
+                            </div>
+                            <div class="evidence-item">
+                                死亡推定時刻は午後10時15分から10時30分の間。この時間帯に書斎にアクセスできた人物が犯人。
+                            </div>
+                            <div style="margin-top: 15px; display: flex; gap: 10px;">
+                                <button class="question-btn" onclick="showFloorPlan()" style="flex: 1; font-size: 0.9em; padding: 10px;">間取り図を見る</button>
+                                <button class="question-btn" onclick="showDashboard()" style="flex: 1; font-size: 0.9em; padding: 10px;">情報ダッシュボード</button>
                             </div>
                         </div>
 
@@ -1348,6 +1422,31 @@
                         evidence: "バルコニーへの動線は書斎の前を通る。防犯カメラに10時02分、山本が廊下を通過する姿あり"
                     }
                 ]
+            },
+            {
+                name: "黒木誠",
+                role: "顧問弁護士・45歳",
+                image: "Kuroki.png",
+                profile: "相澤の会社の顧問弁護士として10年間勤務。法律の抜け穴を使った強引な手法で知られ、相澤の「汚れ仕事」を一手に引き受けてきた。",
+                motive: "相澤が最近、自分の違法行為の証拠を掴み、「君の弁護士資格を剥奪できる」と脅迫してきた。さらに報酬の大幅カットを一方的に通告され、これまでの忠誠が裏切られた形に。弁護士生命と収入源の両方を失う危機に直面していた。",
+                alibi: "午後9時15分到着。9時30分から10時15分まで書斎で相澤と契約更新の交渉。激しく対立し、相澤に一方的に追い出される。その後リビングで書類を整理しながら怒りを鎮めていた。11時頃まで誰とも接触せず。",
+                questions: [
+                    {
+                        q: "10時15分に書斎を出た後、どこにいましたか?",
+                        a: "リビングです。契約書の条項を見直していました。あまりにも理不尽な内容で...冷静になる時間が必要でした。",
+                        evidence: "リビングのテーブルに黒木の契約書類と多数のメモ書き。10時20分頃から書き込まれた形跡。"
+                    },
+                    {
+                        q: "相澤さんとの交渉内容は?",
+                        a: "報酬の減額です。一方的に70%カットを通告されました。さらに、私の過去の...法的にグレーな仕事について、証拠があると脅されて。",
+                        evidence: "書斎の金庫に黒木の違法行為に関する証拠書類。これを材料に脅迫していた痕跡あり。"
+                    },
+                    {
+                        q: "10時15分から11時まで、誰かとすれ違いませんでしたか?",
+                        a: "いえ、リビングで一人でした。誰も来ませんでしたし、私も動きませんでした。ただ...10時半頃、廊下で物音がしたような気がします。",
+                        evidence: "黒木の証言と一致する時間帯に、防犯カメラの映像に人影なし。ただし、リビングは死角で確認不可能。"
+                    }
+                ]
             }
         ];
 
@@ -1357,12 +1456,13 @@
             1: [], // 相澤麻衣
             2: [], // 田中健太
             3: [], // 佐藤優子
-            4: []  // 山本大輔
+            4: [], // 山本大輔
+            5: []  // 黒木誠
         };
         let selectedSuspect = null;
         let currentSuspect = 0;
 
-        const murdererId = 0; // 真犯人
+        const murdererId = 5; // 真犯人
 
         function startGame() {
             document.getElementById('introScreen').style.display = 'none';
@@ -1431,11 +1531,81 @@
             `;
         }
 
+        function showFloorPlan() {
+            const cards = document.querySelectorAll('.suspects-grid .suspect-card');
+            cards.forEach(card => card.classList.remove('active'));
+
+            const mainPanel = document.getElementById('mainPanel');
+
+            mainPanel.innerHTML = `
+                <div class="dashboard">
+                    <h2 style="color: var(--accent-gold);">事件現場の間取り図</h2>
+
+                    <div class="floor-plan">
+                        <div class="floor-plan-title">32階・最上階ペントハウス</div>
+                        <div class="floor-plan-grid">
+                            <div class="room">
+                                <div class="room-name">エレベーター</div>
+                                <div class="room-detail">暗証番号式</div>
+                            </div>
+                            <div class="room">
+                                <div class="room-name">廊下</div>
+                                <div class="room-detail">防犯カメラあり</div>
+                            </div>
+                            <div class="room crime-scene">
+                                <div class="room-name">書斎</div>
+                                <div class="room-detail">犯行現場<br>窓は施錠</div>
+                            </div>
+                            <div class="room">
+                                <div class="room-name">バルコニー</div>
+                                <div class="room-detail">書斎に隣接</div>
+                            </div>
+                            <div class="room">
+                                <div class="room-name">水野の部屋</div>
+                                <div class="room-detail">秘書室</div>
+                            </div>
+                            <div class="room">
+                                <div class="room-name">麻衣の部屋</div>
+                                <div class="room-detail">主寝室</div>
+                            </div>
+                            <div class="room">
+                                <div class="room-name">ゲストルーム</div>
+                                <div class="room-detail">客室</div>
+                            </div>
+                            <div class="room">
+                                <div class="room-name">リビング</div>
+                                <div class="room-detail">共有スペース<br>※死角</div>
+                            </div>
+                            <div class="room" style="grid-column: span 2;">
+                                <div class="room-name">キッチン</div>
+                                <div class="room-detail">電気ケトル・食器あり</div>
+                            </div>
+                            <div class="room" style="grid-column: span 2;">
+                                <div class="room-name">ダイニング</div>
+                                <div class="room-detail">リビングに隣接</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="dashboard-section" style="margin-top: 20px;">
+                        <h3 style="color: var(--accent-gold);">重要ポイント</h3>
+                        <div class="evidence-item">
+                            <strong>防犯カメラ:</strong> 廊下に設置されているが、リビングは死角になっている。
+                        </div>
+                        <div class="evidence-item">
+                            <strong>書斎:</strong> 犯行現場。窓は施錠されており、外部からの侵入は不可能。
+                        </div>
+                        <div class="evidence-item">
+                            <strong>距離:</strong> 水野の部屋と書斎は廊下を挟んで約8メートル。ゲストルームと書斎は約15メートル。
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+
         function showDashboard() {
             const cards = document.querySelectorAll('.suspects-grid .suspect-card');
-            cards.forEach((card, i) => {
-                card.classList.toggle('active', i === 5);
-            });
+            cards.forEach(card => card.classList.remove('active'));
 
             const mainPanel = document.getElementById('mainPanel');
 
@@ -1443,19 +1613,22 @@
             const victimInfoHTML = `
                 <div class="victim-info">
                     <p><strong>被害者:</strong> 相澤隆一（あいざわ りゅういち）</p>
-                    <p><strong>死亡推定時刻:</strong> 午後10時30分〜11時00分</p>
-                    <p><strong>死因:</strong> 後頭部への鈍器による強打。凶器は未発見。</p>
-                    <p><strong>発見状況:</strong> 書斎にて倒れているところを秘書が発見。窓は施錠され、玄関の電子ロックには不審な記録なし。</p>
+                    <p><strong>死亡推定時刻:</strong> 午後10時15分〜10時30分</p>
+                    <p><strong>死因:</strong> 後頭部への鈍器による強打。凶器は書斎にあった真鍮製の書鎮（現場に残されていた）。</p>
+                    <p><strong>発見状況:</strong> 書斎にて倒れているところを秘書が発見。窓は施錠され、玄関の電子ロックには6人の訪問記録のみ。</p>
                 </div>
             `;
 
             // 基本情報
             const basicInfoHTML = `
                 <div class="evidence-item">
-                    被害者の自宅は32階建ての最上階。エレベーターは暗証番号式で、その夜のログには5人の容疑者のみが記録されている。
+                    被害者の自宅は32階建ての最上階。エレベーターは暗証番号式で、その夜のログには6人の訪問者のみが記録されている。
                 </div>
                 <div class="evidence-item">
-                    書斎のドアは内側から施錠されていなかった。被害者のスマートフォンには午後10時23分に着信履歴あり。
+                    書斎のドアは内側から施錠されていなかった。凶器の書鎮には犯人の指紋が拭き取られた痕跡があり、現場に残されていた。
+                </div>
+                <div class="evidence-item">
+                    死亡推定時刻は午後10時15分から10時30分の間。この時間帯に書斎にアクセスできた人物が犯人。
                 </div>
             `;
 
@@ -1469,7 +1642,7 @@
                     });
                     evidenceByPersonHTML += `
                         <div class="dashboard-section">
-                            <h3>🔍 ${suspect.name}の証拠</h3>
+                            <h3>${suspect.name}の証拠</h3>
                             <div class="dashboard-evidence-grid">
                                 ${evidenceItems}
                             </div>
@@ -1480,15 +1653,61 @@
 
             mainPanel.innerHTML = `
                 <div class="dashboard">
-                    <h2>📊 情報ダッシュボード</h2>
+                    <h2>情報ダッシュボード</h2>
 
                     <div class="dashboard-section" style="margin-bottom: 20px;">
-                        <h3>👤 被害者情報</h3>
+                        <h3>被害者情報</h3>
                         ${victimInfoHTML}
                     </div>
 
+                    <div class="floor-plan">
+                        <div class="floor-plan-title">事件現場の間取り図（32階・最上階）</div>
+                        <div class="floor-plan-grid">
+                            <div class="room">
+                                <div class="room-name">エレベーター</div>
+                                <div class="room-detail">暗証番号式</div>
+                            </div>
+                            <div class="room">
+                                <div class="room-name">廊下</div>
+                                <div class="room-detail">防犯カメラあり</div>
+                            </div>
+                            <div class="room crime-scene">
+                                <div class="room-name">書斎</div>
+                                <div class="room-detail">犯行現場<br>窓は施錠</div>
+                            </div>
+                            <div class="room">
+                                <div class="room-name">バルコニー</div>
+                                <div class="room-detail">書斎に隣接</div>
+                            </div>
+                            <div class="room">
+                                <div class="room-name">水野の部屋</div>
+                                <div class="room-detail">秘書室</div>
+                            </div>
+                            <div class="room">
+                                <div class="room-name">麻衣の部屋</div>
+                                <div class="room-detail">主寝室</div>
+                            </div>
+                            <div class="room">
+                                <div class="room-name">ゲストルーム</div>
+                                <div class="room-detail">客室</div>
+                            </div>
+                            <div class="room">
+                                <div class="room-name">リビング</div>
+                                <div class="room-detail">共有スペース</div>
+                            </div>
+                            <div class="room" style="grid-column: span 2;">
+                                <div class="room-name">キッチン</div>
+                                <div class="room-detail">電気ケトル・食器あり</div>
+                            </div>
+                            <div class="room" style="grid-column: span 2;">
+                                <div class="room-name">ダイニング</div>
+                                <div class="room-detail">リビングに隣接</div>
+                            </div>
+                        </div>
+                    </div>
+
                     <div class="dashboard-section" style="margin-bottom: 20px;">
-                        <h3>📋 基本情報</h3>
+                        <h3>基本情報</h3>
                         ${basicInfoHTML}
                     </div>
 
@@ -1576,7 +1795,6 @@
                 option.innerHTML = `
                     <img src="${suspect.image}" alt="${suspect.name}" class="suspect-option-image">
                     <div class="suspect-option-name">${suspect.name}</div>
-                    <div class="suspect-option-role">${suspect.role}</div>
                 `;
                 optionsDiv.appendChild(option);
             });
@@ -1628,51 +1846,52 @@
                         <h2 class="result-title success">事件解決</h2>
                         <div class="explanation">
                             <p style="font-size: 1.2em; text-align: center; margin-bottom: 30px;">
-                                犯人は<strong style="color: var(--accent-gold);">水野美咲</strong>でした。
+                                犯人は<strong style="color: var(--accent-gold);">黒木誠</strong>でした。
                             </p>
 
                             <h3>真相</h3>
-                            <p>水野には10時35分からの電話記録という完璧なアリバイがあるように見えました。しかし、これこそが巧妙なトリックだったのです。</p>
+                            <p>黒木は10時15分に書斎を出た後、リビングで書類整理をしていたという完璧なアリバイがあるように見えました。しかし、リビングは防犯カメラの死角。これを利用した犯行でした。</p>
 
                             <div class="timeline">
                                 <div class="timeline-item">
-                                    <strong>10:00-10:25</strong> - 書斎で相澤と面談。企画盗用を問い詰めるが逆ギレされ、激怒。
+                                    <strong>9:30-10:15</strong> - 書斎で相澤と契約更新の交渉。報酬70%カットを一方的に通告され、さらに違法行為の証拠で脅迫される。
                                 </div>
                                 <div class="timeline-item">
-                                    <strong>10:25</strong> - 書斎を出た後、キッチンへ。しかし実際にはお茶を淹れず、すぐ書斎に引き返す。
+                                    <strong>10:15</strong> - 相澤に追い出される形で書斎を出る。リビングに移動し、契約書を見直しながら怒りが頂点に達する。
                                 </div>
                                 <div class="timeline-item">
-                                    <strong>10:27</strong> - 書斎で相澤を襲撃。凶器は書斎にあった重厚なガラス製の文鎮。後頭部を一撃で殴打。
+                                    <strong>10:20</strong> - 弁護士生命を守るため、証拠書類を奪い返すことを決意。リビングから書斎へ向かう（防犯カメラの死角を熟知）。
                                 </div>
                                 <div class="timeline-item">
-                                    <strong>10:28</strong> - 急いでキッチンに戻り、電気ケトルのスイッチを入れる（使用記録10:28分）。アリバイ作り。
+                                    <strong>10:22</strong> - 書斎に戻り、金庫の証拠を要求。相澤が拒否し、「明日警察に通報する」と告げる。追い詰められた黒木は衝動的に書鎮を手に取る。
                                 </div>
                                 <div class="timeline-item">
-                                    <strong>10:30</strong> - 凶器を自室のクローゼット奥に隠す。手を洗い、落ち着く。
+                                    <strong>10:23</strong> - 相澤の背後から書鎮で後頭部を一撃。即死させる。指紋を拭き取り、書鎮をそのまま現場に残す（持ち出すとリスクが高いため）。
                                 </div>
                                 <div class="timeline-item">
-                                    <strong>10:35-11:15</strong> - 自室から母親に電話。長電話をすることで完璧なアリバイを構築。
+                                    <strong>10:25</strong> - 金庫から証拠書類を奪い、リビングに戻る。何事もなかったかのように書類整理を再開。
                                 </div>
                             </div>
 
                             <h3>決定的な証拠</h3>
-                            <p>水野のトリックを暴く決定的な矛盾点:</p>
+                            <p>黒木を真犯人と特定する根拠:</p>
                             <ul style="margin-left: 30px; line-height: 2;">
-                                <li><strong>電気ケトルの矛盾:</strong> 10時28分に使用記録があるが、実際にお茶は淹れられていない。カップに触れた形跡なし。</li>
-                                <li><strong>時間的余裕:</strong> 書斎を出た10:25から電話開始の10:35まで10分間。この間に犯行と証拠隠滅が可能。</li>
-                                <li><strong>自室と書斎の近さ:</strong> わずか8メートル。往復20秒で行き来できる距離。</li>
-                                <li><strong>佐藤の証言:</strong> 10:24分に水野が「怒った様子で」書斎を出たのを目撃。しかし水野は「穏やかにお茶を淹れに行った」と証言。矛盾している。</li>
-                                <li><strong>電話のタイミング:</strong> なぜ10:35という中途半端な時間に電話? 実は犯行後に証拠を整理し、落ち着いてから電話したため。</li>
+                                <li><strong>犯行可能時刻:</strong> 10:15-10:30の間、黒木だけがリビングで一人。この時間帯に書斎へ往復できた唯一の人物。</li>
+                                <li><strong>防犯カメラの死角:</strong> リビングは防犯カメラの映らない位置。黒木は顧問として間取りを熟知しており、死角を利用できた。</li>
+                                <li><strong>証拠書類の消失:</strong> 書斎の金庫に保管されていた黒木の違法行為に関する証拠が、事件後に消えている。犯人だけが奪える。</li>
+                                <li><strong>動機の強さ:</strong> 弁護士資格剥奪と収入源喪失の危機。他の容疑者より遥かに切迫した状況。</li>
+                                <li><strong>矛盾する証言:</strong> 「10時半頃、廊下で物音がした」と証言。しかし他の誰も聞いていない。自分が廊下を移動した音を、誰かがいたかのように偽装。</li>
                             </ul>
 
                             <h3>動機</h3>
-                            <p>3年間のパワハラ・セクハラに加え、水野が時間をかけて開発した企画を相澤が盗用し、自分の名前で特許申請していた。これは水野のキャリアと将来を奪う行為でした。退職も脅迫により拒否され、追い詰められた水野は、衝動的に犯行に及んだのです。</p>
+                            <p>10年間相澤の「汚れ仕事」を引き受けてきた黒木。しかし相澤は恩を仇で返し、黒木の違法行為の証拠を掴んで脅迫。報酬も70%カットを一方的に通告。弁護士生命と収入の両方を失う絶望的状況で、証拠を奪い返すために書斎に戻ったが、相澤が「明日警察に通報する」と告げたため、衝動的に殺害に至った。</p>
 
                             <h3>その他の容疑者について</h3>
-                            <p><strong>相澤麻衣:</strong> 10:15までビデオ会議中。画面に映っており、物理的に不可能。</p>
-                            <p><strong>田中健太:</strong> 10時以降ゲストルームにおり、書斎への往復を誰にも目撃されていない。しかし決定的な証拠がない。</p>
-                            <p><strong>佐藤優子:</strong> 廊下で水野を目撃後、リビングへ移動。書斎には入っていない証拠あり。</p>
-                            <p><strong>山本大輔:</strong> 10:02にバルコニーへ向かう姿が防犯カメラに記録。その後バルコニーで35分間過ごす。</p>
+                            <p><strong>水野美咲:</strong> 10時25分に書斎を出た後、10時35分から電話記録あり。時間的に可能だが、キッチンでケトルを使用した記録もあり、犯行後の行動としては不自然。</p>
+                            <p><strong>相澤麻衣:</strong> 10時16分までビデオ会議中。画面に映っており、物理的に不可能。</p>
+                            <p><strong>田中健太:</strong> 10時以降ゲストルームにいたが、誰とも接触せず。しかし犯行時刻に書斎への往復を目撃されておらず、物的証拠もない。</p>
+                            <p><strong>佐藤優子:</strong> 10時25分まで廊下で待機後、リビングへ。書斎のドアノブに指紋なし。入室していない。</p>
+                            <p><strong>山本大輔:</strong> 10時02分にバルコニーへ向かい、10時35分まで喫煙。物理的に犯行時刻と合わない。</p>
                         </div>
 
                         <button class="start-btn" onclick="location.reload()">もう一度プレイ</button>
@@ -1713,10 +1932,7 @@
                             </div>
                         </div>
 
-                        <div style="display: flex; gap: 20px; justify-content: center; margin-top: 30px;">
-                            <button class="start-btn" onclick="returnToHome()" style="background: linear-gradient(135deg, var(--border-color) 0%, var(--secondary-dark) 100%);">
-                                ホームに戻る
-                            </button>
+                        <div style="text-align: center; margin-top: 30px;">
                             <button class="start-btn" onclick="location.reload()">
                                 もう一度挑戦する
                             </button>
@@ -1751,15 +1967,17 @@
         function getInnocenceReason(suspectIndex) {
             console.log('getInnocenceReason called with index:', suspectIndex);
             const reasons = [
-                null, // 水野（真犯人）
-                `<p>相澤麻衣は9時02分から10時16分まで、パリのバイヤーとビデオ会議中でした。相手側の記録でも確認されており、画面に映り続けていたため、物理的に犯行は不可能です。推定死亡時刻の10:27頃、彼女は確実に自室のPC画面の前にいました。</p>
-                <p>さらに、10時20分からキッチンで軽食を取っていた証拠もあり、この時点で相澤はすでに死亡していた可能性が高いです。</p>`,
-                `<p>田中健太は確かに相澤と激しく対立していましたが、10時以降はゲストルームにいたと証言しています。また、決定的な物的証拠がありません。動機は強いものの、犯行時刻のアリバイを完全に否定する証拠がないため、有罪とするには不十分です。</p>
-                <p>ただし、最も疑わしい人物の一人であることは間違いありません。</p>`,
-                `<p>佐藤優子は10時24分に水野が書斎から「怒った様子で」出てくるのを廊下で目撃しています。これは重要な証言です。その後、佐藤は書斎のドアノブに触れた形跡もなく（指紋なし）、リビングに移動しています。</p>
+                `<p>水野美咲は10時25分に書斎を出た後、キッチンで電気ケトルを使用した記録（10時28分）があり、10時35分から電話をしています。犯行時刻（10:15-10:30）との整合性はありますが、決定的な物的証拠がありません。</p>
+                <p>また、水野が犯人であれば、なぜわざわざキッチンでケトルを使用したのか説明がつきません。これは無実の証拠と考えられます。</p>`,
+                `<p>相澤麻衣は9時02分から10時16分まで、パリのバイヤーとビデオ会議中でした。相手側の記録でも確認されており、画面に映り続けていたため、物理的に犯行は不可能です。推定死亡時刻（10:15-10:30）の間、彼女は確実に自室のPC画面の前にいました。</p>
+                <p>10時20分からキッチンで軽食を取っていた証拠もあり、完璧なアリバイがあります。</p>`,
+                `<p>田中健太は確かに相澤と激しく対立していましたが、10時以降はゲストルームにいたと証言しています。防犯カメラにも書斎への往復は記録されておらず、現場に田中を結びつける物的証拠もありません。</p>
+                <p>動機は強いものの、犯行時刻に書斎へアクセスした証拠がないため、有罪とするには不十分です。</p>`,
+                `<p>佐藤優子は10時24分に水野が書斎から出てくるのを廊下で目撃しています。その後、書斎のドアノブに触れた形跡もなく（指紋なし）、リビングに移動しています。</p>
                 <p>10時40分にはキッチンで麻衣と遭遇しており、この間に書斎に入る機会はありませんでした。物理的に犯行は不可能です。</p>`,
                 `<p>山本大輔は10時02分に防犯カメラに記録されており、その後バルコニーで10時35分頃までタバコを吸っていました。灰皿には吸い殻4本があり、証言と一致します。</p>
-                <p>バルコニーから書斎へは往復で最低でも1分以上かかり、その間に誰かに目撃されるリスクが高すぎます。また、戻ってきた時に田中に目撃されており、物理的に犯行の時間がありません。</p>`
+                <p>犯行時刻（10:15-10:30）はバルコニーにいたため、物理的に犯行は不可能です。また、戻ってきた時に田中に目撃されています。</p>`,
+                null // 黒木（真犯人）
             ];
 
             const result = reasons[suspectIndex] || '<p>証拠が不十分です。</p>';
