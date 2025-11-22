@@ -354,20 +354,20 @@
 
         .modal-content {
             background: linear-gradient(135deg, var(--secondary-dark) 0%, var(--primary-dark) 100%);
-            margin: 3% auto;
-            padding: 30px;
+            margin: 5vh auto;
+            padding: 40px;
             border: 2px solid var(--accent-gold);
             border-radius: 15px;
-            width: 90%;
-            max-width: 900px;
-            max-height: 85vh;
-            overflow-y: auto;
+            width: 95%;
+            max-width: 1100px;
             box-shadow: 0 10px 50px rgba(0,0,0,0.5);
         }
 
         #suspectOptions {
-            max-height: 60vh;
-            overflow-y: auto;
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 15px;
+            margin-top: 30px;
         }
 
         .close {
@@ -386,25 +386,77 @@
         .suspect-option {
             background: rgba(26, 31, 58, 0.8);
             border: 2px solid var(--border-color);
-            border-radius: 8px;
+            border-radius: 10px;
             padding: 15px;
-            margin: 10px 0;
             cursor: pointer;
             transition: all 0.3s ease;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
 
         .suspect-option:hover {
             border-color: var(--accent-gold);
-            transform: translateX(5px);
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(212, 175, 55, 0.3);
         }
 
         .suspect-option.selected {
             border-color: var(--accent-red);
-            background: rgba(139, 0, 0, 0.2);
+            background: rgba(139, 0, 0, 0.3);
+            box-shadow: 0 8px 20px rgba(139, 0, 0, 0.5);
+        }
+
+        .suspect-option-image {
+            width: 100px;
+            height: 100px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 3px solid var(--border-color);
+            margin-bottom: 15px;
+            transition: all 0.3s ease;
+        }
+
+        .suspect-option:hover .suspect-option-image {
+            border-color: var(--accent-gold);
+        }
+
+        .suspect-option.selected .suspect-option-image {
+            border-color: var(--accent-red);
+        }
+
+        .suspect-option-name {
+            font-size: 1.1em;
+            font-weight: 600;
+            color: var(--accent-gold);
+            margin-bottom: 5px;
+        }
+
+        .suspect-option-role {
+            font-size: 0.9em;
+            color: var(--text-dim);
+        }
+
+        @media (max-width: 1200px) {
+            #suspectOptions {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            #suspectOptions {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .modal-content {
+                padding: 20px;
+            }
         }
 
         .submit-accusation {
-            margin-top: 20px;
+            display: block;
+            margin: 30px auto 0;
             padding: 15px 40px;
             background: linear-gradient(135deg, var(--accent-gold) 0%, #b8941f 100%);
             color: var(--primary-dark);
@@ -549,22 +601,6 @@
             }
         }
 
-
-        .suspect-option-content {
-            display: flex;
-            align-items: center;
-        }
-
-        .suspect-option-info {
-            flex: 1;
-        }
-
-        .suspect-option-motive {
-            font-size: 0.85em;
-            color: var(--text-light);
-            margin-top: 8px;
-            line-height: 1.6;
-        }
 
         /* Evidence improvements */
         .evidence-category {
@@ -1395,13 +1431,9 @@
                 option.onclick = () => selectSuspectForAccusation(index);
                 option.id = `option${index}`;
                 option.innerHTML = `
-                    <div class="suspect-option-content">
-                        <div class="suspect-option-info">
-                            <div class="suspect-name">${suspect.name}</div>
-                            <div class="suspect-role">${suspect.role}</div>
-                            <div class="suspect-option-motive">${suspect.motive}</div>
-                        </div>
-                    </div>
+                    <img src="${suspect.image}" alt="${suspect.name}" class="suspect-option-image">
+                    <div class="suspect-option-name">${suspect.name}</div>
+                    <div class="suspect-option-role">${suspect.role}</div>
                 `;
                 optionsDiv.appendChild(option);
             });
