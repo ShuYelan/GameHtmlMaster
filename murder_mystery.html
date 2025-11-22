@@ -465,6 +465,90 @@
             background: #b8941f;
         }
 
+        /* Character Portrait */
+        .character-portrait {
+            width: 200px;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 10px;
+            border: 3px solid var(--accent-gold);
+            margin-bottom: 20px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+        }
+
+        .suspect-option-portrait {
+            width: 80px;
+            height: 80px;
+            object-fit: cover;
+            border-radius: 8px;
+            border: 2px solid var(--border-color);
+            margin-right: 15px;
+            transition: all 0.3s ease;
+        }
+
+        .suspect-option.selected .suspect-option-portrait {
+            border-color: var(--accent-red);
+        }
+
+        .suspect-option-content {
+            display: flex;
+            align-items: center;
+        }
+
+        .suspect-option-info {
+            flex: 1;
+        }
+
+        .suspect-option-description {
+            font-size: 0.85em;
+            color: var(--text-dim);
+            margin-top: 8px;
+            line-height: 1.5;
+        }
+
+        .suspect-option-motive {
+            font-size: 0.8em;
+            color: var(--accent-red);
+            margin-top: 5px;
+            font-style: italic;
+        }
+
+        /* Evidence improvements */
+        .evidence-category {
+            margin-bottom: 25px;
+        }
+
+        .evidence-category-title {
+            color: var(--accent-gold);
+            font-size: 1em;
+            font-weight: 600;
+            margin-bottom: 10px;
+            padding-bottom: 8px;
+            border-bottom: 1px solid var(--border-color);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .evidence-count {
+            background: var(--accent-gold);
+            color: var(--primary-dark);
+            font-size: 0.75em;
+            padding: 2px 8px;
+            border-radius: 12px;
+            font-weight: 700;
+        }
+
+        .evidence-item {
+            background: rgba(26, 31, 58, 0.8);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 12px;
+            margin-bottom: 10px;
+            font-size: 0.9em;
+            line-height: 1.6;
+        }
+
         /* BGM Control Panel */
         .bgm-control {
             position: fixed;
@@ -752,16 +836,20 @@
 
                 <div class="evidence-panel scrollbar">
                     <div class="panel-title">収集した証拠</div>
-                    <div id="evidenceList">
-                        <div class="evidence-item">
-                            <div class="evidence-title">基本情報</div>
-                            <p>被害者の自宅は32階建ての最上階。エレベーターは暗証番号式で、その夜のログには5人の容疑者のみが記録されている。</p>
+
+                    <div class="evidence-category">
+                        <div class="evidence-category-title">
+                            📋 基本情報
                         </div>
                         <div class="evidence-item">
-                            <div class="evidence-title">現場の状況</div>
-                            <p>書斎のドアは内側から施錠されていなかった。被害者のスマートフォンには午後10時23分に着信履歴あり。</p>
+                            被害者の自宅は32階建ての最上階。エレベーターは暗証番号式で、その夜のログには5人の容疑者のみが記録されている。
+                        </div>
+                        <div class="evidence-item">
+                            書斎のドアは内側から施錠されていなかった。被害者のスマートフォンには午後10時23分に着信履歴あり。
                         </div>
                     </div>
+
+                    <div id="evidenceList"></div>
 
                     <div class="accusation-panel">
                         <div class="panel-title">犯人を告発する</div>
@@ -964,6 +1052,7 @@
             {
                 name: "水野美咲",
                 role: "秘書・29歳",
+                image: "Mizuno.png",
                 profile: "相澤の秘書として3年間勤務。有能で信頼されていたが、最近は過度な要求に悩んでいた。",
                 motive: "相澤からのパワハラとセクハラに長年苦しんでいた。先週、退職を申し出たが却下され、「業界で働けなくしてやる」と脅された。",
                 alibi: "午後10時15分に相澤から呼び出され、書斎へ。10時30分まで仕事の指示を受けていた。その後リビングで書類作成をしており、10時50分頃に田中と会話。11時30分に書斎を訪れ、遺体を発見。",
@@ -988,6 +1077,7 @@
             {
                 name: "相澤麻衣",
                 role: "妻・34歳",
+                image: "Aizawa.png",
                 profile: "相澤と結婚して5年。元モデルで、現在はファッションブランドを経営。夫婦仲は冷え切っていた。",
                 motive: "夫の浮気と、離婚時の財産分与を巡って対立。相澤は離婚を拒否し、麻衣のブランド事業への投資を人質に取っていた。死亡により全財産を相続できる。",
                 alibi: "午後9時から自室で通話。10時に通話終了後、ワインを飲みながら雑誌を読んでいた。10時40分頃、キッチンで佐藤と遭遇。11時過ぎに騒ぎを聞いて書斎へ。",
@@ -1012,6 +1102,7 @@
             {
                 name: "田中健太",
                 role: "ビジネスパートナー・42歳",
+                image: "Tanaka.png",
                 profile: "相澤と共同で事業を立ち上げた共同経営者。最近、経営方針を巡って対立していた。",
                 motive: "相澤が独断で危険な投資を行い、会社を危機に陥れた。先月、相澤を経営から外そうとしたが失敗。会社の株式の60%を相澤が保有しており、死亡すれば買い取りの機会が生まれる。",
                 alibi: "午後9時30分に到着。相澤と書斎で会議。10時15分に会議終了、その後ゲストルームで電話会議。10時50分頃キッチンでコーヒーを淹れ、水野と会話。11時15分まで電話会議継続。",
@@ -1036,6 +1127,7 @@
             {
                 name: "佐藤優子",
                 role: "元恋人・31歳",
+                image: "Sato.png",
                 profile: "相澤の大学時代の恋人。5年前に相澤が麻衣と結婚したことで別れたが、最近再び接触していた。",
                 motive: "相澤から「やり直そう」と言われ、離婚を信じて関係を再開。しかし実際は離婚する気などなく、都合の良い関係を続けるつもりだったと知り激怒。",
                 alibi: "午後10時に到着。相澤に呼ばれたが、書斎には入らず廊下で待つよう言われた。10時20分頃まで廊下で待機。痺れを切らしてリビングへ。10時40分頃キッチンで麻衣と遭遇。11時頃まで居間のソファで雑誌を読む。",
@@ -1060,6 +1152,7 @@
             {
                 name: "山本大輔",
                 role: "弟・33歳",
+                image: "Yamamoto.png",
                 profile: "相澤の義理の弟（麻衣の実弟）。相澤の会社で働いているが、能力不足を理由に冷遇されていた。",
                 motive: "相澤から日常的にパワハラを受け、「無能な義弟」と侮辱されていた。先週、横領の濡れ衣を着せられそうになり、姉の麻衣に相談するも取り合ってもらえず。",
                 alibi: "午後9時45分に到着。相澤から呼び出されていた。10時まで書斎で相澤と口論。その後バルコニーでタバコを吸い、10時30分頃に戻る。リビングで時間を潰し、11時過ぎに騒ぎを聞く。",
@@ -1084,6 +1177,13 @@
         ];
 
         let collectedEvidence = [];
+        let evidenceBySuspect = {
+            0: [], // 水野美咲
+            1: [], // 相澤麻衣
+            2: [], // 田中健太
+            3: [], // 佐藤優子
+            4: []  // 山本大輔
+        };
         let selectedSuspect = null;
         let currentSuspect = 0;
 
@@ -1124,6 +1224,9 @@
 
             mainPanel.innerHTML = `
                 <div class="suspect-detail active">
+                    <div style="text-align: center;">
+                        <img src="${suspect.image}" alt="${suspect.name}" class="character-portrait">
+                    </div>
                     <h2 style="color: var(--accent-gold); margin-bottom: 20px;">${suspect.name}</h2>
 
                     <div class="detail-section">
@@ -1160,26 +1263,56 @@
 
             const evidence = suspects[suspectIndex].questions[questionIndex].evidence;
             if (evidence) {
-                addEvidence(evidence);
+                addEvidence(evidence, suspectIndex);
             }
         }
 
-        function addEvidence(evidenceText) {
+        function addEvidence(evidenceText, suspectIndex) {
             if (collectedEvidence.includes(evidenceText)) return;
 
             collectedEvidence.push(evidenceText);
-            const evidenceList = document.getElementById('evidenceList');
-            const evidenceItem = document.createElement('div');
-            evidenceItem.className = 'evidence-item new';
-            evidenceItem.innerHTML = `
-                <div class="evidence-title">新しい証拠 #${collectedEvidence.length}</div>
-                <p>${evidenceText}</p>
-            `;
-            evidenceList.appendChild(evidenceItem);
+            evidenceBySuspect[suspectIndex].push(evidenceText);
 
-            setTimeout(() => {
-                evidenceItem.classList.remove('new');
-            }, 3000);
+            updateEvidenceDisplay();
+        }
+
+        function updateEvidenceDisplay() {
+            const evidenceList = document.getElementById('evidenceList');
+            evidenceList.innerHTML = '';
+
+            // Display evidence by suspect
+            suspects.forEach((suspect, index) => {
+                if (evidenceBySuspect[index].length > 0) {
+                    const category = document.createElement('div');
+                    category.className = 'evidence-category';
+
+                    let evidenceHTML = '';
+                    evidenceBySuspect[index].forEach((evidence, i) => {
+                        const isNew = collectedEvidence[collectedEvidence.length - 1] === evidence;
+                        evidenceHTML += `
+                            <div class="evidence-item ${isNew ? 'new' : ''}">
+                                ${evidence}
+                            </div>
+                        `;
+                    });
+
+                    category.innerHTML = `
+                        <div class="evidence-category-title">
+                            🔍 ${suspect.name}
+                            <span class="evidence-count">${evidenceBySuspect[index].length}</span>
+                        </div>
+                        ${evidenceHTML}
+                    `;
+                    evidenceList.appendChild(category);
+
+                    // Remove 'new' class after animation
+                    setTimeout(() => {
+                        category.querySelectorAll('.evidence-item.new').forEach(item => {
+                            item.classList.remove('new');
+                        });
+                    }, 3000);
+                }
+            });
         }
 
         function openAccusationModal() {
@@ -1193,8 +1326,15 @@
                 option.onclick = () => selectSuspectForAccusation(index);
                 option.id = `option${index}`;
                 option.innerHTML = `
-                    <div class="suspect-name">${suspect.name}</div>
-                    <div class="suspect-role">${suspect.role}</div>
+                    <div class="suspect-option-content">
+                        <img src="${suspect.image}" alt="${suspect.name}" class="suspect-option-portrait">
+                        <div class="suspect-option-info">
+                            <div class="suspect-name">${suspect.name}</div>
+                            <div class="suspect-role">${suspect.role}</div>
+                            <div class="suspect-option-description">${suspect.profile}</div>
+                            <div class="suspect-option-motive">動機: ${suspect.motive}</div>
+                        </div>
+                    </div>
                 `;
                 optionsDiv.appendChild(option);
             });
@@ -1354,6 +1494,13 @@
 
             // Reset game state
             collectedEvidence = [];
+            evidenceBySuspect = {
+                0: [],
+                1: [],
+                2: [],
+                3: [],
+                4: []
+            };
             selectedSuspect = null;
             currentSuspect = 0;
         }
