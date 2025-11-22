@@ -167,19 +167,6 @@
             background: rgba(212, 175, 55, 0.1);
         }
 
-        .suspect-card-image {
-            width: 80px;
-            height: 80px;
-            object-fit: cover;
-            border-radius: 50%;
-            border: 2px solid var(--border-color);
-            margin: 0 auto 10px;
-            transition: all 0.3s ease;
-        }
-
-        .suspect-card.active .suspect-card-image {
-            border-color: var(--accent-gold);
-        }
 
         .suspect-name {
             font-size: 1em;
@@ -501,28 +488,67 @@
 
         /* Character Portrait */
         .character-portrait {
-            width: 200px;
-            height: 200px;
+            width: 250px;
+            height: auto;
+            min-height: 200px;
+            max-height: 350px;
             object-fit: cover;
             border-radius: 10px;
             border: 3px solid var(--accent-gold);
-            margin-bottom: 20px;
             box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+            flex-shrink: 0;
         }
 
-        .suspect-option-portrait {
-            width: 80px;
-            height: 80px;
-            object-fit: cover;
-            border-radius: 8px;
-            border: 2px solid var(--border-color);
-            margin-right: 15px;
-            transition: all 0.3s ease;
+        .suspect-header {
+            display: flex;
+            gap: 30px;
+            margin-bottom: 30px;
+            align-items: stretch;
         }
 
-        .suspect-option.selected .suspect-option-portrait {
-            border-color: var(--accent-red);
+        .suspect-header-info {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
         }
+
+        .suspect-header-info h2 {
+            color: var(--accent-gold);
+            margin-bottom: 20px;
+            font-size: 2em;
+        }
+
+        .suspect-header-section {
+            margin-bottom: 15px;
+        }
+
+        .suspect-header-section:last-child {
+            margin-bottom: 0;
+        }
+
+        .suspect-header-section h3 {
+            color: var(--accent-gold);
+            margin-bottom: 10px;
+            font-size: 1.1em;
+        }
+
+        .suspect-header-section p {
+            line-height: 1.8;
+        }
+
+        @media (max-width: 900px) {
+            .suspect-header {
+                flex-direction: column;
+            }
+
+            .character-portrait {
+                width: 200px;
+                height: 200px;
+                margin: 0 auto;
+            }
+        }
+
 
         .suspect-option-content {
             display: flex;
@@ -771,11 +797,6 @@
             .suspects-grid {
                 grid-template-columns: repeat(2, 1fr);
             }
-
-            .suspect-card-image {
-                width: 60px;
-                height: 60px;
-            }
         }
 
         @media (max-width: 600px) {
@@ -851,27 +872,22 @@
                 <div class="panel-title">容疑者リスト</div>
                 <div class="suspects-grid">
                     <div class="suspect-card" onclick="showSuspect(0)">
-                        <img src="Mizuno.png" alt="水野美咲" class="suspect-card-image">
                         <div class="suspect-name">水野美咲</div>
                         <div class="suspect-role">秘書・29歳</div>
                     </div>
                     <div class="suspect-card" onclick="showSuspect(1)">
-                        <img src="Aizawa.png" alt="相澤麻衣" class="suspect-card-image">
                         <div class="suspect-name">相澤麻衣</div>
                         <div class="suspect-role">妻・34歳</div>
                     </div>
                     <div class="suspect-card" onclick="showSuspect(2)">
-                        <img src="Tanaka.png" alt="田中健太" class="suspect-card-image">
                         <div class="suspect-name">田中健太</div>
                         <div class="suspect-role">ビジネスパートナー・42歳</div>
                     </div>
                     <div class="suspect-card" onclick="showSuspect(3)">
-                        <img src="Sato.png" alt="佐藤優子" class="suspect-card-image">
                         <div class="suspect-name">佐藤優子</div>
                         <div class="suspect-role">元恋人・31歳</div>
                     </div>
                     <div class="suspect-card" onclick="showSuspect(4)">
-                        <img src="Yamamoto.png" alt="山本大輔" class="suspect-card-image">
                         <div class="suspect-name">山本大輔</div>
                         <div class="suspect-role">弟・33歳</div>
                     </div>
@@ -1275,19 +1291,21 @@
 
             mainPanel.innerHTML = `
                 <div class="suspect-detail active">
-                    <div style="text-align: center;">
+                    <div class="suspect-header">
                         <img src="${suspect.image}" alt="${suspect.name}" class="character-portrait">
-                    </div>
-                    <h2 style="color: var(--accent-gold); margin-bottom: 20px;">${suspect.name}</h2>
+                        <div class="suspect-header-info">
+                            <h2>${suspect.name}</h2>
 
-                    <div class="detail-section">
-                        <h3>プロフィール</h3>
-                        <p>${suspect.profile}</p>
-                    </div>
+                            <div class="suspect-header-section">
+                                <h3>プロフィール</h3>
+                                <p>${suspect.profile}</p>
+                            </div>
 
-                    <div class="detail-section">
-                        <h3>動機</h3>
-                        <p style="color: var(--accent-red);">${suspect.motive}</p>
+                            <div class="suspect-header-section">
+                                <h3>動機</h3>
+                                <p style="color: var(--accent-red);">${suspect.motive}</p>
+                            </div>
+                        </div>
                     </div>
 
                     <div class="detail-section">
@@ -1378,7 +1396,6 @@
                 option.id = `option${index}`;
                 option.innerHTML = `
                     <div class="suspect-option-content">
-                        <img src="${suspect.image}" alt="${suspect.name}" class="suspect-option-portrait">
                         <div class="suspect-option-info">
                             <div class="suspect-name">${suspect.name}</div>
                             <div class="suspect-role">${suspect.role}</div>
