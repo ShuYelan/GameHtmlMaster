@@ -1444,7 +1444,7 @@
             {
                 name: "黒木誠",
                 role: "顧問弁護士・45歳",
-                image: "Kuroki.png",
+                image: "Kuroki2.png",
                 profile: "相澤の会社の顧問弁護士として10年間勤務。法律の抜け穴を使った強引な手法で知られ、相澤の「汚れ仕事」を一手に引き受けてきた。",
                 motive: "相澤が最近、自分の違法行為の証拠を掴み、「君の弁護士資格を剥奪できる」と脅迫してきた。さらに報酬の大幅カットを一方的に通告され、これまでの忠誠が裏切られた形に。弁護士生命と収入源の両方を失う危機に直面していた。",
                 alibi: "午後9時15分到着。9時30分から10時15分まで書斎（LDK）で相澤と契約更新の交渉。激しく対立し、相澤に一方的に追い出される。その後、浴室エリアのトイレで顔を洗い、書斎のDK（食卓エリア）で書類を整理しながら怒りを鎮めていた。11時頃まで誰とも接触せず。",
@@ -1561,114 +1561,89 @@
 
                     <div class="floor-plan">
                         <div class="floor-plan-title">32階・最上階ペントハウス（高級マンション）</div>
-                        <div class="floor-plan-grid">
-                            <!-- 1行目: バルコニー側 -->
-                            <div class="room" style="grid-column: span 2;">
-                                <div class="room-name">バルコニー</div>
-                                <div class="room-detail">南向き</div>
-                            </div>
-                            <div class="room crime-scene" style="grid-column: span 3;">
-                                <div class="room-name">書斎★</div>
-                                <div class="room-detail">犯行現場・LDK</div>
-                            </div>
-                            <div class="room" style="grid-column: span 3;">
-                                <div class="room-name">バルコニー</div>
-                                <div class="room-detail">南向き</div>
-                            </div>
+                        <svg viewBox="0 0 800 600" style="max-width: 100%; height: auto; background: rgba(10, 15, 35, 0.5); border: 2px solid var(--accent-gold); border-radius: 10px;">
+                            <!-- 廊下（メインホール） -->
+                            <rect x="150" y="50" width="60" height="500" fill="rgba(100, 150, 255, 0.15)" stroke="rgba(100, 150, 255, 0.6)" stroke-width="2"/>
+                            <text x="180" y="300" text-anchor="middle" fill="rgba(100, 150, 255, 0.9)" font-size="16" font-weight="bold" transform="rotate(-90 180 300)">廊下</text>
 
-                            <!-- 2行目: 主寝室・書斎下部 -->
-                            <div class="room" style="grid-column: span 2; grid-row: span 2;">
-                                <div class="room-name">主寝室</div>
-                                <div class="room-detail">麻衣の部屋<br>12畳</div>
-                            </div>
-                            <div class="room hallway">
-                                <div class="room-name">廊下</div>
-                                <div class="room-detail">↕</div>
-                            </div>
-                            <div class="room" style="grid-column: span 2;">
-                                <div class="room-name">DK続き</div>
-                                <div class="room-detail">食卓エリア</div>
-                            </div>
-                            <div class="room">
-                                <div class="room-name">洋室1</div>
-                                <div class="room-detail">水野の部屋</div>
-                            </div>
-                            <div class="room" style="grid-column: span 2;">
-                                <div class="room-name">洋室2</div>
-                                <div class="room-detail">ゲストルーム</div>
-                            </div>
+                            <!-- 玄関ホール -->
+                            <rect x="150" y="450" width="100" height="100" fill="rgba(212, 175, 55, 0.1)" stroke="rgba(212, 175, 55, 0.6)" stroke-width="2"/>
+                            <text x="200" y="495" text-anchor="middle" fill="var(--accent-gold)" font-size="14" font-weight="bold">玄関ホール</text>
+                            <text x="200" y="515" text-anchor="middle" fill="var(--accent-gold)" font-size="12">★カメラ</text>
 
-                            <!-- 3行目: 廊下・個室 -->
-                            <div class="room hallway">
-                                <div class="room-name">廊下</div>
-                                <div class="room-detail">↕</div>
-                            </div>
-                            <div class="room" style="grid-column: span 2;">
-                                <div class="room-name">キッチン</div>
-                                <div class="room-detail">ケトル・食器</div>
-                            </div>
-                            <div class="room hallway">
-                                <div class="room-name">廊下</div>
-                                <div class="room-detail">→</div>
-                            </div>
-                            <div class="room">
-                                <div class="room-name">WC</div>
-                                <div class="room-detail">トイレ</div>
-                            </div>
-                            <div class="room">
-                                <div class="room-name">洗面</div>
-                                <div class="room-detail">洗面所</div>
-                            </div>
+                            <!-- 玄関 -->
+                            <rect x="100" y="500" width="50" height="50" fill="rgba(20, 25, 45, 0.9)" stroke="rgba(100, 150, 255, 0.4)" stroke-width="2"/>
+                            <text x="125" y="530" text-anchor="middle" fill="var(--accent-gold)" font-size="11">玄関</text>
 
-                            <!-- 4行目: 玄関・水回り -->
-                            <div class="room entrance-hall" style="grid-column: span 2;">
-                                <div class="room-name">玄関ホール</div>
-                                <div class="room-detail">★カメラ設置</div>
-                            </div>
-                            <div class="room hallway" style="grid-column: span 2;">
-                                <div class="room-name">廊下</div>
-                                <div class="room-detail">メインホール →</div>
-                            </div>
-                            <div class="room">
-                                <div class="room-name">収納</div>
-                                <div class="room-detail">SIC</div>
-                            </div>
-                            <div class="room" style="grid-column: span 2;">
-                                <div class="room-name">浴室</div>
-                                <div class="room-detail">バス・洗濯</div>
-                            </div>
-                            <div class="room">
-                                <div class="room-name">脱衣所</div>
-                                <div class="room-detail">洗面台</div>
-                            </div>
+                            <!-- エレベーター -->
+                            <rect x="50" y="500" width="50" height="50" fill="rgba(20, 25, 45, 0.9)" stroke="rgba(100, 150, 255, 0.4)" stroke-width="2"/>
+                            <text x="75" y="525" text-anchor="middle" fill="var(--accent-gold)" font-size="11">EV</text>
+                            <text x="75" y="540" text-anchor="middle" fill="var(--text-dim)" font-size="9">暗証番号</text>
 
-                            <!-- 5行目: エントランス -->
-                            <div class="room">
-                                <div class="room-name">玄関</div>
-                                <div class="room-detail">エントランス</div>
-                            </div>
-                            <div class="room">
-                                <div class="room-name">下駄箱</div>
-                                <div class="room-detail">シューズ</div>
-                            </div>
-                            <div class="room hallway">
-                                <div class="room-name">廊下</div>
-                                <div class="room-detail">↑</div>
-                            </div>
-                            <div style="grid-column: span 2; background: rgba(0,0,0,0.3);"></div>
-                            <div class="room">
-                                <div class="room-name">WC</div>
-                                <div class="room-detail">トイレ2</div>
-                            </div>
-                            <div style="grid-column: span 2; background: rgba(0,0,0,0.3);"></div>
+                            <!-- 書斎（LDK）★犯行現場 -->
+                            <rect x="250" y="50" width="180" height="150" fill="rgba(139, 0, 0, 0.2)" stroke="var(--accent-red)" stroke-width="3"/>
+                            <text x="340" y="115" text-anchor="middle" fill="var(--accent-red)" font-size="16" font-weight="bold">書斎（LDK）★</text>
+                            <text x="340" y="135" text-anchor="middle" fill="var(--accent-red)" font-size="12">犯行現場</text>
 
-                            <!-- 6行目: エレベーター -->
-                            <div class="room">
-                                <div class="room-name">EV</div>
-                                <div class="room-detail">暗証番号式</div>
-                            </div>
-                            <div style="grid-column: span 7; background: rgba(0,0,0,0.3);"></div>
-                        </div>
+                            <!-- バルコニー（書斎側） -->
+                            <rect x="430" y="50" width="100" height="150" fill="rgba(20, 25, 45, 0.9)" stroke="rgba(100, 150, 255, 0.4)" stroke-width="2"/>
+                            <text x="480" y="120" text-anchor="middle" fill="var(--accent-gold)" font-size="12">バルコニー</text>
+                            <text x="480" y="140" text-anchor="middle" fill="var(--text-dim)" font-size="10">南向き</text>
+
+                            <!-- 主寝室（麻衣の部屋） -->
+                            <rect x="250" y="200" width="140" height="120" fill="rgba(20, 25, 45, 0.9)" stroke="rgba(100, 150, 255, 0.4)" stroke-width="2"/>
+                            <text x="320" y="250" text-anchor="middle" fill="var(--accent-gold)" font-size="14" font-weight="bold">主寝室</text>
+                            <text x="320" y="270" text-anchor="middle" fill="var(--text-dim)" font-size="11">麻衣の部屋・12畳</text>
+
+                            <!-- バルコニー（主寝室側） -->
+                            <rect x="390" y="200" width="70" height="120" fill="rgba(20, 25, 45, 0.9)" stroke="rgba(100, 150, 255, 0.4)" stroke-width="2"/>
+                            <text x="425" y="260" text-anchor="middle" fill="var(--accent-gold)" font-size="11">バルコニー</text>
+
+                            <!-- キッチン -->
+                            <rect x="250" y="320" width="120" height="80" fill="rgba(20, 25, 45, 0.9)" stroke="rgba(100, 150, 255, 0.4)" stroke-width="2"/>
+                            <text x="310" y="355" text-anchor="middle" fill="var(--accent-gold)" font-size="13">キッチン</text>
+                            <text x="310" y="375" text-anchor="middle" fill="var(--text-dim)" font-size="10">ケトル・食器</text>
+
+                            <!-- 洋室1（水野の部屋） -->
+                            <rect x="250" y="400" width="100" height="100" fill="rgba(20, 25, 45, 0.9)" stroke="rgba(100, 150, 255, 0.4)" stroke-width="2"/>
+                            <text x="300" y="445" text-anchor="middle" fill="var(--accent-gold)" font-size="13">洋室1</text>
+                            <text x="300" y="465" text-anchor="middle" fill="var(--text-dim)" font-size="10">水野の部屋</text>
+
+                            <!-- 洋室2（ゲストルーム） -->
+                            <rect x="550" y="50" width="120" height="100" fill="rgba(20, 25, 45, 0.9)" stroke="rgba(100, 150, 255, 0.4)" stroke-width="2"/>
+                            <text x="610" y="95" text-anchor="middle" fill="var(--accent-gold)" font-size="13">洋室2</text>
+                            <text x="610" y="115" text-anchor="middle" fill="var(--text-dim)" font-size="10">ゲストルーム</text>
+
+                            <!-- 浴室 -->
+                            <rect x="550" y="150" width="100" height="80" fill="rgba(20, 25, 45, 0.9)" stroke="rgba(100, 150, 255, 0.4)" stroke-width="2"/>
+                            <text x="600" y="190" text-anchor="middle" fill="var(--accent-gold)" font-size="12">浴室</text>
+                            <text x="600" y="210" text-anchor="middle" fill="var(--text-dim)" font-size="9">バス・洗濯</text>
+
+                            <!-- トイレ -->
+                            <rect x="650" y="150" width="60" height="80" fill="rgba(20, 25, 45, 0.9)" stroke="rgba(100, 150, 255, 0.4)" stroke-width="2"/>
+                            <text x="680" y="195" text-anchor="middle" fill="var(--accent-gold)" font-size="11">WC</text>
+
+                            <!-- 収納 -->
+                            <rect x="710" y="150" width="60" height="80" fill="rgba(20, 25, 45, 0.9)" stroke="rgba(100, 150, 255, 0.4)" stroke-width="2"/>
+                            <text x="740" y="195" text-anchor="middle" fill="var(--accent-gold)" font-size="10">収納</text>
+
+                            <!-- ドア（廊下から各部屋へ） -->
+                            <line x1="210" y1="125" x2="250" y2="125" stroke="rgba(212, 175, 55, 0.8)" stroke-width="3"/>
+                            <line x1="210" y1="260" x2="250" y2="260" stroke="rgba(212, 175, 55, 0.8)" stroke-width="3"/>
+                            <line x1="210" y1="360" x2="250" y2="360" stroke="rgba(212, 175, 55, 0.8)" stroke-width="3"/>
+                            <line x1="210" y1="450" x2="250" y2="450" stroke="rgba(212, 175, 55, 0.8)" stroke-width="3"/>
+                            <line x1="210" y1="100" x2="550" y2="100" stroke="rgba(212, 175, 55, 0.8)" stroke-width="3"/>
+                            <line x1="210" y1="190" x2="550" y2="190" stroke="rgba(212, 175, 55, 0.8)" stroke-width="3"/>
+
+                            <!-- 凡例 -->
+                            <text x="20" y="30" fill="var(--accent-gold)" font-size="12" font-weight="bold">凡例:</text>
+                            <rect x="20" y="35" width="30" height="15" fill="rgba(100, 150, 255, 0.15)" stroke="rgba(100, 150, 255, 0.6)" stroke-width="1"/>
+                            <text x="55" y="47" fill="var(--text-color)" font-size="10">廊下</text>
+                            <rect x="20" y="55" width="30" height="15" fill="rgba(139, 0, 0, 0.2)" stroke="var(--accent-red)" stroke-width="1"/>
+                            <text x="55" y="67" fill="var(--text-color)" font-size="10">犯行現場</text>
+                            <line x1="20" y1="80" x2="50" y2="80" stroke="rgba(212, 175, 55, 0.8)" stroke-width="2"/>
+                            <text x="55" y="85" fill="var(--text-color)" font-size="10">ドア</text>
+                        </svg>
                     </div>
 
                     <div class="dashboard-section" style="margin-top: 20px;">
@@ -1755,114 +1730,89 @@
 
                     <div class="floor-plan">
                         <div class="floor-plan-title">事件現場の間取り図（32階・最上階）</div>
-                        <div class="floor-plan-grid">
-                            <!-- 1行目: バルコニー側 -->
-                            <div class="room" style="grid-column: span 2;">
-                                <div class="room-name">バルコニー</div>
-                                <div class="room-detail">南向き</div>
-                            </div>
-                            <div class="room crime-scene" style="grid-column: span 3;">
-                                <div class="room-name">書斎★</div>
-                                <div class="room-detail">犯行現場・LDK</div>
-                            </div>
-                            <div class="room" style="grid-column: span 3;">
-                                <div class="room-name">バルコニー</div>
-                                <div class="room-detail">南向き</div>
-                            </div>
+                        <svg viewBox="0 0 800 600" style="max-width: 100%; height: auto; background: rgba(10, 15, 35, 0.5); border: 2px solid var(--accent-gold); border-radius: 10px;">
+                            <!-- 廊下（メインホール） -->
+                            <rect x="150" y="50" width="60" height="500" fill="rgba(100, 150, 255, 0.15)" stroke="rgba(100, 150, 255, 0.6)" stroke-width="2"/>
+                            <text x="180" y="300" text-anchor="middle" fill="rgba(100, 150, 255, 0.9)" font-size="16" font-weight="bold" transform="rotate(-90 180 300)">廊下</text>
 
-                            <!-- 2行目: 主寝室・書斎下部 -->
-                            <div class="room" style="grid-column: span 2; grid-row: span 2;">
-                                <div class="room-name">主寝室</div>
-                                <div class="room-detail">麻衣の部屋<br>12畳</div>
-                            </div>
-                            <div class="room hallway">
-                                <div class="room-name">廊下</div>
-                                <div class="room-detail">↕</div>
-                            </div>
-                            <div class="room" style="grid-column: span 2;">
-                                <div class="room-name">DK続き</div>
-                                <div class="room-detail">食卓エリア</div>
-                            </div>
-                            <div class="room">
-                                <div class="room-name">洋室1</div>
-                                <div class="room-detail">水野の部屋</div>
-                            </div>
-                            <div class="room" style="grid-column: span 2;">
-                                <div class="room-name">洋室2</div>
-                                <div class="room-detail">ゲストルーム</div>
-                            </div>
+                            <!-- 玄関ホール -->
+                            <rect x="150" y="450" width="100" height="100" fill="rgba(212, 175, 55, 0.1)" stroke="rgba(212, 175, 55, 0.6)" stroke-width="2"/>
+                            <text x="200" y="495" text-anchor="middle" fill="var(--accent-gold)" font-size="14" font-weight="bold">玄関ホール</text>
+                            <text x="200" y="515" text-anchor="middle" fill="var(--accent-gold)" font-size="12">★カメラ</text>
 
-                            <!-- 3行目: 廊下・個室 -->
-                            <div class="room hallway">
-                                <div class="room-name">廊下</div>
-                                <div class="room-detail">↕</div>
-                            </div>
-                            <div class="room" style="grid-column: span 2;">
-                                <div class="room-name">キッチン</div>
-                                <div class="room-detail">ケトル・食器</div>
-                            </div>
-                            <div class="room hallway">
-                                <div class="room-name">廊下</div>
-                                <div class="room-detail">→</div>
-                            </div>
-                            <div class="room">
-                                <div class="room-name">WC</div>
-                                <div class="room-detail">トイレ</div>
-                            </div>
-                            <div class="room">
-                                <div class="room-name">洗面</div>
-                                <div class="room-detail">洗面所</div>
-                            </div>
+                            <!-- 玄関 -->
+                            <rect x="100" y="500" width="50" height="50" fill="rgba(20, 25, 45, 0.9)" stroke="rgba(100, 150, 255, 0.4)" stroke-width="2"/>
+                            <text x="125" y="530" text-anchor="middle" fill="var(--accent-gold)" font-size="11">玄関</text>
 
-                            <!-- 4行目: 玄関・水回り -->
-                            <div class="room entrance-hall" style="grid-column: span 2;">
-                                <div class="room-name">玄関ホール</div>
-                                <div class="room-detail">★カメラ設置</div>
-                            </div>
-                            <div class="room hallway" style="grid-column: span 2;">
-                                <div class="room-name">廊下</div>
-                                <div class="room-detail">メインホール →</div>
-                            </div>
-                            <div class="room">
-                                <div class="room-name">収納</div>
-                                <div class="room-detail">SIC</div>
-                            </div>
-                            <div class="room" style="grid-column: span 2;">
-                                <div class="room-name">浴室</div>
-                                <div class="room-detail">バス・洗濯</div>
-                            </div>
-                            <div class="room">
-                                <div class="room-name">脱衣所</div>
-                                <div class="room-detail">洗面台</div>
-                            </div>
+                            <!-- エレベーター -->
+                            <rect x="50" y="500" width="50" height="50" fill="rgba(20, 25, 45, 0.9)" stroke="rgba(100, 150, 255, 0.4)" stroke-width="2"/>
+                            <text x="75" y="525" text-anchor="middle" fill="var(--accent-gold)" font-size="11">EV</text>
+                            <text x="75" y="540" text-anchor="middle" fill="var(--text-dim)" font-size="9">暗証番号</text>
 
-                            <!-- 5行目: エントランス -->
-                            <div class="room">
-                                <div class="room-name">玄関</div>
-                                <div class="room-detail">エントランス</div>
-                            </div>
-                            <div class="room">
-                                <div class="room-name">下駄箱</div>
-                                <div class="room-detail">シューズ</div>
-                            </div>
-                            <div class="room hallway">
-                                <div class="room-name">廊下</div>
-                                <div class="room-detail">↑</div>
-                            </div>
-                            <div style="grid-column: span 2; background: rgba(0,0,0,0.3);"></div>
-                            <div class="room">
-                                <div class="room-name">WC</div>
-                                <div class="room-detail">トイレ2</div>
-                            </div>
-                            <div style="grid-column: span 2; background: rgba(0,0,0,0.3);"></div>
+                            <!-- 書斎（LDK）★犯行現場 -->
+                            <rect x="250" y="50" width="180" height="150" fill="rgba(139, 0, 0, 0.2)" stroke="var(--accent-red)" stroke-width="3"/>
+                            <text x="340" y="115" text-anchor="middle" fill="var(--accent-red)" font-size="16" font-weight="bold">書斎（LDK）★</text>
+                            <text x="340" y="135" text-anchor="middle" fill="var(--accent-red)" font-size="12">犯行現場</text>
 
-                            <!-- 6行目: エレベーター -->
-                            <div class="room">
-                                <div class="room-name">EV</div>
-                                <div class="room-detail">暗証番号式</div>
-                            </div>
-                            <div style="grid-column: span 7; background: rgba(0,0,0,0.3);"></div>
-                        </div>
+                            <!-- バルコニー（書斎側） -->
+                            <rect x="430" y="50" width="100" height="150" fill="rgba(20, 25, 45, 0.9)" stroke="rgba(100, 150, 255, 0.4)" stroke-width="2"/>
+                            <text x="480" y="120" text-anchor="middle" fill="var(--accent-gold)" font-size="12">バルコニー</text>
+                            <text x="480" y="140" text-anchor="middle" fill="var(--text-dim)" font-size="10">南向き</text>
+
+                            <!-- 主寝室（麻衣の部屋） -->
+                            <rect x="250" y="200" width="140" height="120" fill="rgba(20, 25, 45, 0.9)" stroke="rgba(100, 150, 255, 0.4)" stroke-width="2"/>
+                            <text x="320" y="250" text-anchor="middle" fill="var(--accent-gold)" font-size="14" font-weight="bold">主寝室</text>
+                            <text x="320" y="270" text-anchor="middle" fill="var(--text-dim)" font-size="11">麻衣の部屋・12畳</text>
+
+                            <!-- バルコニー（主寝室側） -->
+                            <rect x="390" y="200" width="70" height="120" fill="rgba(20, 25, 45, 0.9)" stroke="rgba(100, 150, 255, 0.4)" stroke-width="2"/>
+                            <text x="425" y="260" text-anchor="middle" fill="var(--accent-gold)" font-size="11">バルコニー</text>
+
+                            <!-- キッチン -->
+                            <rect x="250" y="320" width="120" height="80" fill="rgba(20, 25, 45, 0.9)" stroke="rgba(100, 150, 255, 0.4)" stroke-width="2"/>
+                            <text x="310" y="355" text-anchor="middle" fill="var(--accent-gold)" font-size="13">キッチン</text>
+                            <text x="310" y="375" text-anchor="middle" fill="var(--text-dim)" font-size="10">ケトル・食器</text>
+
+                            <!-- 洋室1（水野の部屋） -->
+                            <rect x="250" y="400" width="100" height="100" fill="rgba(20, 25, 45, 0.9)" stroke="rgba(100, 150, 255, 0.4)" stroke-width="2"/>
+                            <text x="300" y="445" text-anchor="middle" fill="var(--accent-gold)" font-size="13">洋室1</text>
+                            <text x="300" y="465" text-anchor="middle" fill="var(--text-dim)" font-size="10">水野の部屋</text>
+
+                            <!-- 洋室2（ゲストルーム） -->
+                            <rect x="550" y="50" width="120" height="100" fill="rgba(20, 25, 45, 0.9)" stroke="rgba(100, 150, 255, 0.4)" stroke-width="2"/>
+                            <text x="610" y="95" text-anchor="middle" fill="var(--accent-gold)" font-size="13">洋室2</text>
+                            <text x="610" y="115" text-anchor="middle" fill="var(--text-dim)" font-size="10">ゲストルーム</text>
+
+                            <!-- 浴室 -->
+                            <rect x="550" y="150" width="100" height="80" fill="rgba(20, 25, 45, 0.9)" stroke="rgba(100, 150, 255, 0.4)" stroke-width="2"/>
+                            <text x="600" y="190" text-anchor="middle" fill="var(--accent-gold)" font-size="12">浴室</text>
+                            <text x="600" y="210" text-anchor="middle" fill="var(--text-dim)" font-size="9">バス・洗濯</text>
+
+                            <!-- トイレ -->
+                            <rect x="650" y="150" width="60" height="80" fill="rgba(20, 25, 45, 0.9)" stroke="rgba(100, 150, 255, 0.4)" stroke-width="2"/>
+                            <text x="680" y="195" text-anchor="middle" fill="var(--accent-gold)" font-size="11">WC</text>
+
+                            <!-- 収納 -->
+                            <rect x="710" y="150" width="60" height="80" fill="rgba(20, 25, 45, 0.9)" stroke="rgba(100, 150, 255, 0.4)" stroke-width="2"/>
+                            <text x="740" y="195" text-anchor="middle" fill="var(--accent-gold)" font-size="10">収納</text>
+
+                            <!-- ドア（廊下から各部屋へ） -->
+                            <line x1="210" y1="125" x2="250" y2="125" stroke="rgba(212, 175, 55, 0.8)" stroke-width="3"/>
+                            <line x1="210" y1="260" x2="250" y2="260" stroke="rgba(212, 175, 55, 0.8)" stroke-width="3"/>
+                            <line x1="210" y1="360" x2="250" y2="360" stroke="rgba(212, 175, 55, 0.8)" stroke-width="3"/>
+                            <line x1="210" y1="450" x2="250" y2="450" stroke="rgba(212, 175, 55, 0.8)" stroke-width="3"/>
+                            <line x1="210" y1="100" x2="550" y2="100" stroke="rgba(212, 175, 55, 0.8)" stroke-width="3"/>
+                            <line x1="210" y1="190" x2="550" y2="190" stroke="rgba(212, 175, 55, 0.8)" stroke-width="3"/>
+
+                            <!-- 凡例 -->
+                            <text x="20" y="30" fill="var(--accent-gold)" font-size="12" font-weight="bold">凡例:</text>
+                            <rect x="20" y="35" width="30" height="15" fill="rgba(100, 150, 255, 0.15)" stroke="rgba(100, 150, 255, 0.6)" stroke-width="1"/>
+                            <text x="55" y="47" fill="var(--text-color)" font-size="10">廊下</text>
+                            <rect x="20" y="55" width="30" height="15" fill="rgba(139, 0, 0, 0.2)" stroke="var(--accent-red)" stroke-width="1"/>
+                            <text x="55" y="67" fill="var(--text-color)" font-size="10">犯行現場</text>
+                            <line x1="20" y1="80" x2="50" y2="80" stroke="rgba(212, 175, 55, 0.8)" stroke-width="2"/>
+                            <text x="55" y="85" fill="var(--text-color)" font-size="10">ドア</text>
+                        </svg>
                     </div>
 
                     <div class="dashboard-section" style="margin-bottom: 20px;">
