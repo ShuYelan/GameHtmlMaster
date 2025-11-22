@@ -634,12 +634,12 @@
 
         .floor-plan-grid {
             display: grid;
-            grid-template-columns: repeat(7, 1fr);
-            grid-template-rows: repeat(5, 85px);
+            grid-template-columns: repeat(8, 1fr);
+            grid-template-rows: repeat(6, 75px);
             gap: 2px;
             background: var(--border-color);
             border: 2px solid var(--accent-gold);
-            max-width: 1000px;
+            max-width: 1100px;
             margin: 0 auto;
         }
 
@@ -1322,12 +1322,12 @@
                 image: "Mizuno.png",
                 profile: "相澤の秘書として3年間勤務。有能で信頼されていたが、最近は過度な要求に悩んでいた。",
                 motive: "相澤からのパワハラとセクハラに長年苦しんでいた。先週、退職を申し出たが却下され、「業界で働けなくしてやる」と脅された。さらに、相澤が自分の企画を盗用して特許申請していたことを知り、激怒していた。",
-                alibi: "午後10時から10時25分まで書斎で相澤と面談。その後、廊下A→玄関ホール→廊下Bを経由してキッチンでお茶を淹れ、同じルートで自室へ戻る。10時35分から11時15分まで自室で電話をしていた記録あり。11時30分に書斎を訪れ、遺体を発見。",
+                alibi: "午後10時から10時25分まで書斎（LDK）で相澤と面談。その後、洋室1（自室）に戻らず直接キッチンへ移動してお茶を淹れる。10時32分に自室へ戻り、10時35分から11時15分まで電話。11時30分に書斎を訪れ、遺体を発見。",
                 questions: [
                     {
                         q: "10時25分から10時35分の間、どこにいましたか?",
-                        a: "廊下Aを通って玄関ホールに出て、廊下Bからキッチンに行きました。ハーブティーを淹れて、同じルートで自室に戻りました。",
-                        evidence: "玄関ホールのカメラに10時26分、水野が廊下A側から現れて廊下B方向へ向かう姿、10時32分に廊下Bから戻ってくる姿が記録されている。キッチンの電気ケトル使用記録: 10時28分。"
+                        a: "書斎を出てすぐ下のキッチンに行きました。ハーブティーを淹れて、そのまま自室（洋室1）に戻りました。",
+                        evidence: "キッチンの電気ケトル使用記録: 10時27分。水野のスマホに10時35分から11時15分まで母親への発信記録。キッチンから廊下への移動は玄関ホールのカメラの死角。"
                     },
                     {
                         q: "書斎での面談の内容は?",
@@ -1336,8 +1336,8 @@
                     },
                     {
                         q: "自室から書斎への距離は?",
-                        a: "廊下Aで繋がっています。20秒もかかりません。でも10時32分に自室に戻って電話を始めたので、犯行時刻には部屋にいました。",
-                        evidence: "水野の部屋と書斎は廊下Aで直接繋がっており約12m。水野のスマホに10時35分から11時15分まで母親への発信記録。"
+                        a: "洋室1から廊下を通ってすぐです。30秒もかかりません。でも10時32分に部屋に戻って電話を始めたので、犯行時刻には部屋にいました。",
+                        evidence: "洋室1（水野の部屋）と書斎は廊下経由で約15m。水野のスマホに10時35分から11時15分まで母親への発信記録。"
                     }
                 ]
             },
@@ -1347,22 +1347,22 @@
                 image: "Aizawa.png",
                 profile: "相澤と結婚して5年。元モデルで、現在はファッションブランドを経営。夫婦仲は冷え切っていた。",
                 motive: "夫の浮気相手（佐藤優子）との関係継続に激怒。さらに、相澤が麻衣のブランド経営資金を勝手に引き出し、投資に使い込んでいたことが判明。離婚すれば借金だけが残る状況だった。",
-                alibi: "午後9時から10時15分まで自室（廊下A沿い）でビデオ通話会議（ブランドの海外バイヤーと）。10時20分頃、廊下A→玄関ホール→廊下Bを経由してキッチンで軽食を取る。10時40分に自室に戻る途中、廊下Bで佐藤と遭遇。11時過ぎに騒ぎを聞いて書斎へ。",
+                alibi: "午後9時から10時15分まで主寝室でビデオ通話会議（ブランドの海外バイヤーと）。10時18分頃、主寝室を出て廊下を通りキッチンで軽食を取る。10時35分頃、主寝室に戻る途中でバルコニーに出て夜景を眺める。11時過ぎに騒ぎを聞いて書斎へ。",
                 questions: [
                     {
                         q: "ビデオ通話の相手は誰ですか?",
                         a: "パリのバイヤーです。新作コレクションの商談でした。10時15分までずっと画面の前にいました。",
-                        evidence: "麻衣のノートPCに9時02分から10時16分までビデオ会議の記録。相手はパリの取引先（確認済み）"
+                        evidence: "麻衣のノートPCに9時から10時15分までビデオ会議の記録。相手はパリの取引先（確認済み）"
                     },
                     {
                         q: "キッチンに行く時、誰かに会いましたか?",
-                        a: "行く時は誰にも会いませんでした。でも帰る時、廊下Bで佐藤さんとすれ違って...気まずかったです。",
-                        evidence: "玄関ホールのカメラに10時19分、麻衣が廊下A側から現れて廊下B方向へ向かう姿が記録。キッチンのシンクに10時25分頃使用された形跡のある皿とナイフ。"
+                        a: "行く時は誰にも会いませんでした。キッチンで簡単にサンドイッチを作って、バルコニーで食べました。",
+                        evidence: "キッチンのシンクに10時22分頃使用された形跡のある皿とナイフ。主寝室とキッチンを結ぶ廊下は玄関ホールのカメラの死角。"
                     },
                     {
-                        q: "自室から書斎への距離は?",
-                        a: "廊下Aで繋がっています。でも10時16分まで会議中でしたし、その後はキッチンに行って...犯行時刻には不可能です。",
-                        evidence: "麻衣の部屋と書斎は廊下Aで繋がっており約10m。ビデオ会議中は画面に映っており、アリバイは完璧。"
+                        q: "主寝室から書斎への距離は?",
+                        a: "廊下を通れば10mほどです。でも10時15分まで会議中でしたし、その後はキッチンとバルコニーにいました。バルコニーからも書斎に入れますが、私は主寝室側にいました。",
+                        evidence: "主寝室と書斎は廊下経由で約8m。バルコニーは主寝室・書斎両方に面している。ビデオ会議中は画面に映っており、10時15分までのアリバイは完璧。"
                     }
                 ]
             },
@@ -1372,12 +1372,12 @@
                 image: "Tanaka.png",
                 profile: "相澤と共同で事業を立ち上げた共同経営者。最近、経営方針を巡って対立していた。",
                 motive: "相澤が会社の資金を私的に流用し、会社を倒産寸前に追い込んでいた。田中の全財産も会社に投じており、このままでは自己破産確実。相澤を止める方法は他になかった。",
-                alibi: "午後9時30分到着。10時まで書斎で相澤と激しく口論。その後、廊下A→玄関ホールを経由してゲストルームへ移動し資料整理。10時50分頃、リビングに行く途中で山本と遭遇。11時10分頃に廊下Aで水野とすれ違う。",
+                alibi: "午後9時30分到着。10時まで書斎（LDK）で相澤と激しく口論。その後、廊下を通って洋室2（ゲストルーム）へ移動し資料整理。10時50分頃、トイレに行く途中で廊下で山本と遭遇。11時10分頃に再び廊下で水野とすれ違う。",
                 questions: [
                     {
                         q: "10時に書斎を出た後、どこにいましたか?",
-                        a: "ゲストルームです。廊下Aを通って玄関ホールに出て、そこからゲストルームに入りました。資料整理をしていました。",
-                        evidence: "玄関ホールのカメラに10時02分、田中が廊下A側から現れてゲストルーム方向へ向かう姿が記録。ゲストルームのデスクに散らばった会議資料と田中の指紋多数。"
+                        a: "洋室2（ゲストルーム）です。廊下を通ってゲストルームに入り、資料整理をしていました。かなり動揺していて...。",
+                        evidence: "玄関ホールのカメラに10時02分、田中が廊下を通り洋室2方向へ向かう姿が記録。ゲストルームのデスクに散らばった会議資料と田中の指紋多数。"
                     },
                     {
                         q: "口論の内容は?",
@@ -1386,8 +1386,8 @@
                     },
                     {
                         q: "ゲストルームから書斎に戻ることは可能でしたか?",
-                        a: "可能です。玄関ホールを経由して廊下Aに入れば...でも私は10時以降、ゲストルームにいました。10時50分にリビングに行きましたが。",
-                        evidence: "ゲストルームから書斎へは玄関ホール→廊下A経由で約18m。カメラには10時02分以降、田中がホールを通過した記録なし（10時50分まで）。"
+                        a: "可能です。廊下を通ればすぐです。でも私は10時以降、ゲストルームにいました。玄関ホールのカメラに映らない死角エリアですが...。",
+                        evidence: "洋室2（ゲストルーム）から書斎へは廊下経由で約18m。玄関ホールから洋室2への廊下は一部死角。カメラには10時02分以降、田中が玄関ホールを通過した記録なし（10時50分まで）。"
                     }
                 ]
             },
@@ -1397,12 +1397,12 @@
                 image: "Sato.png",
                 profile: "相澤の大学時代の恋人。5年前に相澤が麻衣と結婚したことで別れたが、最近再び接触していた。",
                 motive: "相澤に「離婚して一緒になろう」と言われ、2年間関係を続けていた。しかし先週、相澤が他の女性とも二股していたことが判明。すべてが嘘だったと知り、人生を奪われた怒りが爆発。",
-                alibi: "午後10時到着。エレベーターから玄関ホールに入り、相澤から「今夜話がある」と呼ばれていた。書斎に向かうため廊下A方向へ向かうが、書斎からは話し声が聞こえ、廊下Aで10時25分頃まで待機。その後、玄関ホール→廊下Bを経由してリビングに移動し雑誌を読む。10時40分頃、廊下Bで麻衣と遭遇し気まずい思いをする。",
+                alibi: "午後10時到着。エレベーターから玄関→玄関ホールに入り、相澤から「今夜話がある」と呼ばれていた。書斎に向かおうとするが、書斎からは話し声が聞こえ、廊下で10時25分頃まで待機。その後、キッチンで水を飲み、10時40分頃トイレに行く途中で麻衣と遭遇し気まずい思いをする。",
                 questions: [
                     {
-                        q: "廊下Aで待っている間、何か聞こえましたか?",
-                        a: "相澤さんと水野さんの声でした。かなり激しい口調で...10時25分頃、水野さんが怒った様子で書斎を出て廊下Aを玄関ホール方向に向かいました。",
-                        evidence: "玄関ホールのカメラに10時26分、水野が廊下A側から現れて廊下B方向へ向かう姿が記録。佐藤は廊下Aの書斎付近にいたためカメラには映っていない。"
+                        q: "廊下で待っている間、何か聞こえましたか?",
+                        a: "相澤さんと水野さんの声でした。かなり激しい口調で...10時25分頃、水野さんが怒った様子で書斎を出て行きました。",
+                        evidence: "書斎から廊下への水野の移動は目撃者多数。佐藤は廊下で待機していたため、玄関ホールのカメラには映っていない（死角エリア）。"
                     },
                     {
                         q: "相澤さんに呼ばれた理由は?",
@@ -1411,8 +1411,8 @@
                     },
                     {
                         q: "水野さんが出た後、書斎には入りませんでしたか?",
-                        a: "いえ...ノックしましたが返事がなくて。怒っているんだと思って、玄関ホールを経由してリビングで待つことにしました。",
-                        evidence: "書斎のドアノブに佐藤の指紋なし（ノックのみで触れていない証拠）。玄関ホールのカメラに10時28分、佐藤が廊下A側から現れて廊下B方向（リビング）へ向かう姿が記録。"
+                        a: "いえ...ノックしましたが返事がなくて。怒っているんだと思って、キッチンで水を飲んで時間を潰しました。",
+                        evidence: "書斎のドアノブに佐藤の指紋なし（ノックのみで触れていない証拠）。キッチンのシンクに10時28分頃使用された形跡のあるグラス。廊下・キッチンエリアは玄関ホールのカメラの死角。"
                     }
                 ]
             },
@@ -1422,12 +1422,12 @@
                 image: "Yamamoto.png",
                 profile: "相澤の義理の弟（麻衣の実弟）。相澤の会社で働いているが、能力不足を理由に冷遇されていた。",
                 motive: "相澤から横領の濡れ衣を着せられ、刑事告訴すると脅されていた。実際には相澤自身が会社の金を使い込み、その責任を山本に押し付けようとしていた。このままでは刑務所行きという絶望的状況。",
-                alibi: "午後9時45分到着。エレベーターから玄関ホールを経由して廊下Aを通り書斎へ。10時まで書斎で相澤と激論。その後すぐ隣のバルコニーでタバコを吸いながら怒りを鎮める。10時35分頃、廊下A→玄関ホール→廊下Bを経由してリビングに移動し、ソファで時間を潰す。10時50分頃、廊下Bで田中に目撃される。",
+                alibi: "午後9時45分到着。エレベーターから玄関→玄関ホールを経由して廊下を通り書斎（LDK）へ。10時まで書斎で相澤と激論。その後バルコニーでタバコを吸いながら怒りを鎮める。10時35分頃、浴室のトイレを使用。10時50分頃、廊下で田中と遭遇。11時頃まで玄関ホール付近をうろついていた。",
                 questions: [
                     {
                         q: "バルコニーには誰かいましたか?",
-                        a: "いえ、一人でした。タバコを4本吸って...本気で飛び降りようかと思いました。書斎の隣なので、すぐ出られましたから。",
-                        evidence: "バルコニーの灰皿に新しい吸い殻4本（山本の吸っている銘柄）。時間的に10時から10時35分の間と推定。バルコニーは書斎の隣に配置。"
+                        a: "いえ、一人でした。タバコを4本吸って...本気で飛び降りようかと思いました。書斎からすぐ出られますから。",
+                        evidence: "バルコニーの灰皿に新しい吸い殻4本（山本の吸っている銘柄）。時間的に10時から10時35分の間と推定。バルコニーは書斎（LDK）に面している。"
                     },
                     {
                         q: "書斎での口論の内容は?",
@@ -1436,8 +1436,8 @@
                     },
                     {
                         q: "10時以降、書斎に戻ることは可能でしたか?",
-                        a: "バルコニーは書斎の隣なので、いつでも戻れました。でも10時35分にリビングに移動してからは...玄関ホールを通らないといけないので。",
-                        evidence: "バルコニーは書斎に隣接しており直接アクセス可能。玄関ホールのカメラに10時36分、山本が廊下A側から現れて廊下B方向へ向かう姿が記録。それ以降、カメラに映った記録なし。"
+                        a: "バルコニーから書斎にはいつでも戻れました。でも10時35分以降は浴室のトイレに行ったり、玄関ホールをうろついたり...でも書斎には戻っていません。",
+                        evidence: "バルコニーは書斎に面しており直接アクセス可能。玄関ホールのカメラに10時36分、山本が廊下を通る姿が記録。浴室の使用記録あり。"
                     }
                 ]
             },
@@ -1447,12 +1447,12 @@
                 image: "Kuroki.png",
                 profile: "相澤の会社の顧問弁護士として10年間勤務。法律の抜け穴を使った強引な手法で知られ、相澤の「汚れ仕事」を一手に引き受けてきた。",
                 motive: "相澤が最近、自分の違法行為の証拠を掴み、「君の弁護士資格を剥奪できる」と脅迫してきた。さらに報酬の大幅カットを一方的に通告され、これまでの忠誠が裏切られた形に。弁護士生命と収入源の両方を失う危機に直面していた。",
-                alibi: "午後9時15分到着。9時30分から10時15分まで書斎で相澤と契約更新の交渉。激しく対立し、相澤に一方的に追い出される。その後、廊下A→玄関ホール→廊下Bを通ってリビングへ移動。リビングで書類を整理しながら怒りを鎮めていた。11時頃まで誰とも接触せず。",
+                alibi: "午後9時15分到着。9時30分から10時15分まで書斎（LDK）で相澤と契約更新の交渉。激しく対立し、相澤に一方的に追い出される。その後、浴室エリアのトイレで顔を洗い、書斎のDK（食卓エリア）で書類を整理しながら怒りを鎮めていた。11時頃まで誰とも接触せず。",
                 questions: [
                     {
-                        q: "10時15分に書斎を出た後、どうやってリビングに行きましたか?",
-                        a: "書斎から廊下Aを通って玄関ホールまで出て、そこから廊下Bに入ってリビングへ向かいました。怒りで頭がいっぱいで...。",
-                        evidence: "玄関ホールの防犯カメラに10時16分、黒木が廊下A側から現れて廊下B方向へ向かう姿が記録されている。"
+                        q: "10時15分に書斎を出た後、どこに行きましたか?",
+                        a: "トイレで顔を洗いました。それから書斎のDK部分（食卓エリア）で契約書類を見直していました。怒りで頭がいっぱいで...。",
+                        evidence: "玄関ホールの防犯カメラに10時16分、黒木が廊下を通って浴室方向へ向かう姿が記録。浴室の洗面台使用記録あり。"
                     },
                     {
                         q: "相澤さんとの交渉内容は?",
@@ -1460,9 +1460,9 @@
                         evidence: "書斎の金庫に黒木の違法行為に関する証拠書類。これを材料に脅迫していた痕跡あり。"
                     },
                     {
-                        q: "リビングから再び書斎に戻ることは可能でしたか?",
-                        a: "理論上は可能です。廊下Bを戻って玄関ホールから廊下Aに入れば...でも、私はリビングにずっといました。カメラには映らないエリアですが。",
-                        evidence: "リビングは玄関ホールのカメラの死角。10時16分以降、黒木がカメラに映った記録なし。リビングのテーブルに黒木の契約書類と10時20分頃から書き込まれたメモ。"
+                        q: "食卓エリアから書斎に戻ることは可能でしたか?",
+                        a: "食卓エリアは書斎（LDK）の一部ですが、相澤は奥のリビング部分にいました。私は食卓で書類を整理していただけで...戻ることはできましたが、戻っていません。",
+                        evidence: "書斎（LDK）は広く、DK部分と奥のリビング部分に分かれている。玄関ホールのカメラには廊下の一部のみ映る。黒木がDKエリアで過ごしていたかは確認不能（死角）。食卓に黒木の契約書類と10時20分頃から書き込まれたメモ。"
                     }
                 ]
             }
@@ -1560,102 +1560,136 @@
                     <h2 style="color: var(--accent-gold);">事件現場の間取り図</h2>
 
                     <div class="floor-plan">
-                        <div class="floor-plan-title">32階・最上階ペントハウス（L字型レイアウト）</div>
+                        <div class="floor-plan-title">32階・最上階ペントハウス（高級マンション）</div>
                         <div class="floor-plan-grid">
-                            <!-- 1行目: プライベートウィング上部 -->
-                            <div class="room crime-scene">
-                                <div class="room-name">書斎★</div>
-                                <div class="room-detail">犯行現場</div>
-                            </div>
-                            <div class="room">
-                                <div class="room-name">バルコニー</div>
-                                <div class="room-detail">書斎隣接</div>
-                            </div>
-                            <div class="room hallway" style="grid-column: span 2;">
-                                <div class="room-name">廊下A（プライベート）</div>
-                                <div class="room-detail">→</div>
-                            </div>
-                            <div style="grid-column: span 3; background: rgba(0,0,0,0.3);"></div>
-
-                            <!-- 2行目: プライベートウィング中部 -->
-                            <div class="room">
-                                <div class="room-name">水野の部屋</div>
-                                <div class="room-detail">秘書室</div>
-                            </div>
-                            <div class="room hallway">
-                                <div class="room-name">廊下A</div>
-                                <div class="room-detail">↕</div>
-                            </div>
-                            <div class="room">
-                                <div class="room-name">麻衣の部屋</div>
-                                <div class="room-detail">主寝室</div>
-                            </div>
-                            <div class="room hallway">
-                                <div class="room-name">廊下A</div>
-                                <div class="room-detail">→</div>
-                            </div>
-                            <div style="grid-column: span 3; background: rgba(0,0,0,0.3);"></div>
-
-                            <!-- 3行目: エントランス〜分岐点 -->
-                            <div class="room">
-                                <div class="room-name">エレベーター</div>
-                                <div class="room-detail">暗証番号式</div>
-                            </div>
-                            <div class="room hallway">
-                                <div class="room-name">廊下A</div>
-                                <div class="room-detail">↕</div>
-                            </div>
-                            <div class="room">
-                                <div class="room-name">ゲストルーム</div>
-                                <div class="room-detail">客室</div>
-                            </div>
-                            <div class="room entrance-hall" style="grid-column: span 2;">
-                                <div class="room-name">玄関ホール</div>
-                                <div class="room-detail">分岐点<br>★カメラ設置</div>
-                            </div>
-                            <div class="room hallway" style="grid-column: span 2;">
-                                <div class="room-name">廊下B（パブリック）</div>
-                                <div class="room-detail">→</div>
-                            </div>
-
-                            <!-- 4行目: パブリックエリア上部 -->
-                            <div style="grid-column: span 3; background: rgba(0,0,0,0.3);"></div>
-                            <div style="grid-column: span 2; background: rgba(0,0,0,0.3);"></div>
-                            <div class="room">
-                                <div class="room-name">リビング</div>
-                                <div class="room-detail">※死角エリア</div>
-                            </div>
-                            <div class="room hallway">
-                                <div class="room-name">廊下B</div>
-                                <div class="room-detail">↕</div>
-                            </div>
-
-                            <!-- 5行目: パブリックエリア下部 -->
-                            <div style="grid-column: span 3; background: rgba(0,0,0,0.3);"></div>
-                            <div style="grid-column: span 2; background: rgba(0,0,0,0.3);"></div>
+                            <!-- 1行目: バルコニー側 -->
                             <div class="room" style="grid-column: span 2;">
-                                <div class="room-name">キッチン・ダイニング</div>
+                                <div class="room-name">バルコニー</div>
+                                <div class="room-detail">南向き</div>
+                            </div>
+                            <div class="room crime-scene" style="grid-column: span 3;">
+                                <div class="room-name">書斎★</div>
+                                <div class="room-detail">犯行現場・LDK</div>
+                            </div>
+                            <div class="room" style="grid-column: span 3;">
+                                <div class="room-name">バルコニー</div>
+                                <div class="room-detail">南向き</div>
+                            </div>
+
+                            <!-- 2行目: 主寝室・書斎下部 -->
+                            <div class="room" style="grid-column: span 2; grid-row: span 2;">
+                                <div class="room-name">主寝室</div>
+                                <div class="room-detail">麻衣の部屋<br>12畳</div>
+                            </div>
+                            <div class="room hallway">
+                                <div class="room-name">廊下</div>
+                                <div class="room-detail">↕</div>
+                            </div>
+                            <div class="room" style="grid-column: span 2;">
+                                <div class="room-name">DK続き</div>
+                                <div class="room-detail">食卓エリア</div>
+                            </div>
+                            <div class="room">
+                                <div class="room-name">洋室1</div>
+                                <div class="room-detail">水野の部屋</div>
+                            </div>
+                            <div class="room" style="grid-column: span 2;">
+                                <div class="room-name">洋室2</div>
+                                <div class="room-detail">ゲストルーム</div>
+                            </div>
+
+                            <!-- 3行目: 廊下・個室 -->
+                            <div class="room hallway">
+                                <div class="room-name">廊下</div>
+                                <div class="room-detail">↕</div>
+                            </div>
+                            <div class="room" style="grid-column: span 2;">
+                                <div class="room-name">キッチン</div>
                                 <div class="room-detail">ケトル・食器</div>
                             </div>
+                            <div class="room hallway">
+                                <div class="room-name">廊下</div>
+                                <div class="room-detail">→</div>
+                            </div>
+                            <div class="room">
+                                <div class="room-name">WC</div>
+                                <div class="room-detail">トイレ</div>
+                            </div>
+                            <div class="room">
+                                <div class="room-name">洗面</div>
+                                <div class="room-detail">洗面所</div>
+                            </div>
+
+                            <!-- 4行目: 玄関・水回り -->
+                            <div class="room entrance-hall" style="grid-column: span 2;">
+                                <div class="room-name">玄関ホール</div>
+                                <div class="room-detail">★カメラ設置</div>
+                            </div>
+                            <div class="room hallway" style="grid-column: span 2;">
+                                <div class="room-name">廊下</div>
+                                <div class="room-detail">メインホール →</div>
+                            </div>
+                            <div class="room">
+                                <div class="room-name">収納</div>
+                                <div class="room-detail">SIC</div>
+                            </div>
+                            <div class="room" style="grid-column: span 2;">
+                                <div class="room-name">浴室</div>
+                                <div class="room-detail">バス・洗濯</div>
+                            </div>
+                            <div class="room">
+                                <div class="room-name">脱衣所</div>
+                                <div class="room-detail">洗面台</div>
+                            </div>
+
+                            <!-- 5行目: エントランス -->
+                            <div class="room">
+                                <div class="room-name">玄関</div>
+                                <div class="room-detail">エントランス</div>
+                            </div>
+                            <div class="room">
+                                <div class="room-name">下駄箱</div>
+                                <div class="room-detail">シューズ</div>
+                            </div>
+                            <div class="room hallway">
+                                <div class="room-name">廊下</div>
+                                <div class="room-detail">↑</div>
+                            </div>
+                            <div style="grid-column: span 2; background: rgba(0,0,0,0.3);"></div>
+                            <div class="room">
+                                <div class="room-name">WC</div>
+                                <div class="room-detail">トイレ2</div>
+                            </div>
+                            <div style="grid-column: span 2; background: rgba(0,0,0,0.3);"></div>
+
+                            <!-- 6行目: エレベーター -->
+                            <div class="room">
+                                <div class="room-name">EV</div>
+                                <div class="room-detail">暗証番号式</div>
+                            </div>
+                            <div style="grid-column: span 7; background: rgba(0,0,0,0.3);"></div>
                         </div>
                     </div>
 
                     <div class="dashboard-section" style="margin-top: 20px;">
                         <h3 style="color: var(--accent-gold);">レイアウトの特徴</h3>
                         <div class="evidence-item">
-                            <strong>L字型構造:</strong> プライベートウィング（左上）とパブリックエリア（右下）がL字に配置されている。
+                            <strong>マンション型構造:</strong> 玄関から廊下を通って各部屋にアクセスする典型的な高級マンション間取り。書斎（LDK）が中央、主寝室と洋室が両翼に配置。
                         </div>
                         <div class="evidence-item">
-                            <strong>2つの廊下:</strong> 廊下A（プライベート専用）と廊下B（パブリック用）が玄関ホールで合流。
+                            <strong>メイン廊下:</strong> 玄関ホールから書斎・各寝室・水回りへ続く一本の廊下。すべての移動はこの廊下を経由。
                         </div>
                         <div class="evidence-item">
-                            <strong>防犯カメラ:</strong> 玄関ホールに設置。廊下Aの一部は映るが、リビング・廊下Bは完全に死角。
+                            <strong>防犯カメラ:</strong> 玄関ホールに設置。メイン廊下の一部のみ映る。主寝室側の廊下・洋室周辺・キッチンは死角。
                         </div>
                         <div class="evidence-item">
-                            <strong>書斎へのルート:</strong> ①廊下A経由（水野・麻衣の部屋側）②玄関ホール→廊下A経由（ゲストルーム・エレベーター側）の2つ。パブリックエリアからは直接行けない。
+                            <strong>書斎（LDK）へのルート:</strong> 玄関から廊下経由で直接アクセス可能。主寝室・洋室1（水野）・洋室2（ゲスト）すべて廊下を通る必要あり。
                         </div>
                         <div class="evidence-item">
-                            <strong>距離:</strong> 水野の部屋→書斎（廊下A経由で約12m）、ゲストルーム→書斎（玄関ホール経由で約18m）、リビング→書斎（玄関ホール経由で約25m）
+                            <strong>距離:</strong> 主寝室→書斎（約8m）、洋室1→書斎（約15m）、洋室2→書斎（約18m）、キッチン→書斎（約6m）
+                        </div>
+                        <div class="evidence-item">
+                            <strong>バルコニー:</strong> 書斎（LDK）と主寝室の南側に面している。バルコニーから書斎への直接アクセスが可能。
                         </div>
                     </div>
                 </div>
@@ -1722,81 +1756,112 @@
                     <div class="floor-plan">
                         <div class="floor-plan-title">事件現場の間取り図（32階・最上階）</div>
                         <div class="floor-plan-grid">
-                            <!-- 1行目: プライベートウィング上部 -->
-                            <div class="room crime-scene">
-                                <div class="room-name">書斎★</div>
-                                <div class="room-detail">犯行現場</div>
-                            </div>
-                            <div class="room">
-                                <div class="room-name">バルコニー</div>
-                                <div class="room-detail">書斎隣接</div>
-                            </div>
-                            <div class="room hallway" style="grid-column: span 2;">
-                                <div class="room-name">廊下A（プライベート）</div>
-                                <div class="room-detail">→</div>
-                            </div>
-                            <div style="grid-column: span 3; background: rgba(0,0,0,0.3);"></div>
-
-                            <!-- 2行目: プライベートウィング中部 -->
-                            <div class="room">
-                                <div class="room-name">水野の部屋</div>
-                                <div class="room-detail">秘書室</div>
-                            </div>
-                            <div class="room hallway">
-                                <div class="room-name">廊下A</div>
-                                <div class="room-detail">↕</div>
-                            </div>
-                            <div class="room">
-                                <div class="room-name">麻衣の部屋</div>
-                                <div class="room-detail">主寝室</div>
-                            </div>
-                            <div class="room hallway">
-                                <div class="room-name">廊下A</div>
-                                <div class="room-detail">→</div>
-                            </div>
-                            <div style="grid-column: span 3; background: rgba(0,0,0,0.3);"></div>
-
-                            <!-- 3行目: エントランス〜分岐点 -->
-                            <div class="room">
-                                <div class="room-name">エレベーター</div>
-                                <div class="room-detail">暗証番号式</div>
-                            </div>
-                            <div class="room hallway">
-                                <div class="room-name">廊下A</div>
-                                <div class="room-detail">↕</div>
-                            </div>
-                            <div class="room">
-                                <div class="room-name">ゲストルーム</div>
-                                <div class="room-detail">客室</div>
-                            </div>
-                            <div class="room entrance-hall" style="grid-column: span 2;">
-                                <div class="room-name">玄関ホール</div>
-                                <div class="room-detail">分岐点<br>★カメラ設置</div>
-                            </div>
-                            <div class="room hallway" style="grid-column: span 2;">
-                                <div class="room-name">廊下B（パブリック）</div>
-                                <div class="room-detail">→</div>
-                            </div>
-
-                            <!-- 4行目: パブリックエリア上部 -->
-                            <div style="grid-column: span 3; background: rgba(0,0,0,0.3);"></div>
-                            <div style="grid-column: span 2; background: rgba(0,0,0,0.3);"></div>
-                            <div class="room">
-                                <div class="room-name">リビング</div>
-                                <div class="room-detail">※死角エリア</div>
-                            </div>
-                            <div class="room hallway">
-                                <div class="room-name">廊下B</div>
-                                <div class="room-detail">↕</div>
-                            </div>
-
-                            <!-- 5行目: パブリックエリア下部 -->
-                            <div style="grid-column: span 3; background: rgba(0,0,0,0.3);"></div>
-                            <div style="grid-column: span 2; background: rgba(0,0,0,0.3);"></div>
+                            <!-- 1行目: バルコニー側 -->
                             <div class="room" style="grid-column: span 2;">
-                                <div class="room-name">キッチン・ダイニング</div>
+                                <div class="room-name">バルコニー</div>
+                                <div class="room-detail">南向き</div>
+                            </div>
+                            <div class="room crime-scene" style="grid-column: span 3;">
+                                <div class="room-name">書斎★</div>
+                                <div class="room-detail">犯行現場・LDK</div>
+                            </div>
+                            <div class="room" style="grid-column: span 3;">
+                                <div class="room-name">バルコニー</div>
+                                <div class="room-detail">南向き</div>
+                            </div>
+
+                            <!-- 2行目: 主寝室・書斎下部 -->
+                            <div class="room" style="grid-column: span 2; grid-row: span 2;">
+                                <div class="room-name">主寝室</div>
+                                <div class="room-detail">麻衣の部屋<br>12畳</div>
+                            </div>
+                            <div class="room hallway">
+                                <div class="room-name">廊下</div>
+                                <div class="room-detail">↕</div>
+                            </div>
+                            <div class="room" style="grid-column: span 2;">
+                                <div class="room-name">DK続き</div>
+                                <div class="room-detail">食卓エリア</div>
+                            </div>
+                            <div class="room">
+                                <div class="room-name">洋室1</div>
+                                <div class="room-detail">水野の部屋</div>
+                            </div>
+                            <div class="room" style="grid-column: span 2;">
+                                <div class="room-name">洋室2</div>
+                                <div class="room-detail">ゲストルーム</div>
+                            </div>
+
+                            <!-- 3行目: 廊下・個室 -->
+                            <div class="room hallway">
+                                <div class="room-name">廊下</div>
+                                <div class="room-detail">↕</div>
+                            </div>
+                            <div class="room" style="grid-column: span 2;">
+                                <div class="room-name">キッチン</div>
                                 <div class="room-detail">ケトル・食器</div>
                             </div>
+                            <div class="room hallway">
+                                <div class="room-name">廊下</div>
+                                <div class="room-detail">→</div>
+                            </div>
+                            <div class="room">
+                                <div class="room-name">WC</div>
+                                <div class="room-detail">トイレ</div>
+                            </div>
+                            <div class="room">
+                                <div class="room-name">洗面</div>
+                                <div class="room-detail">洗面所</div>
+                            </div>
+
+                            <!-- 4行目: 玄関・水回り -->
+                            <div class="room entrance-hall" style="grid-column: span 2;">
+                                <div class="room-name">玄関ホール</div>
+                                <div class="room-detail">★カメラ設置</div>
+                            </div>
+                            <div class="room hallway" style="grid-column: span 2;">
+                                <div class="room-name">廊下</div>
+                                <div class="room-detail">メインホール →</div>
+                            </div>
+                            <div class="room">
+                                <div class="room-name">収納</div>
+                                <div class="room-detail">SIC</div>
+                            </div>
+                            <div class="room" style="grid-column: span 2;">
+                                <div class="room-name">浴室</div>
+                                <div class="room-detail">バス・洗濯</div>
+                            </div>
+                            <div class="room">
+                                <div class="room-name">脱衣所</div>
+                                <div class="room-detail">洗面台</div>
+                            </div>
+
+                            <!-- 5行目: エントランス -->
+                            <div class="room">
+                                <div class="room-name">玄関</div>
+                                <div class="room-detail">エントランス</div>
+                            </div>
+                            <div class="room">
+                                <div class="room-name">下駄箱</div>
+                                <div class="room-detail">シューズ</div>
+                            </div>
+                            <div class="room hallway">
+                                <div class="room-name">廊下</div>
+                                <div class="room-detail">↑</div>
+                            </div>
+                            <div style="grid-column: span 2; background: rgba(0,0,0,0.3);"></div>
+                            <div class="room">
+                                <div class="room-name">WC</div>
+                                <div class="room-detail">トイレ2</div>
+                            </div>
+                            <div style="grid-column: span 2; background: rgba(0,0,0,0.3);"></div>
+
+                            <!-- 6行目: エレベーター -->
+                            <div class="room">
+                                <div class="room-name">EV</div>
+                                <div class="room-detail">暗証番号式</div>
+                            </div>
+                            <div style="grid-column: span 7; background: rgba(0,0,0,0.3);"></div>
                         </div>
                     </div>
 
@@ -1944,48 +2009,48 @@
                             </p>
 
                             <h3>真相</h3>
-                            <p>黒木は10時15分に書斎を出た後、廊下A→玄関ホール→廊下Bを経由してリビングに移動し、書類整理をしていたという完璧なアリバイがあるように見えました。しかし、L字型間取りの特性上、リビング・廊下Bエリアは玄関ホールのカメラの完全な死角。これを利用した犯行でした。</p>
+                            <p>黒木は10時15分に書斎（LDK）を追い出された後、トイレで顔を洗い、書斎のDK（食卓エリア）で書類整理をしていたという完璧なアリバイがあるように見えました。しかし、書斎（LDK）内のDK部分は玄関ホールのカメラの死角。しかも10時16分に廊下を通る姿が映った後、書斎内にいたかどうかは確認不能。これを利用した犯行でした。</p>
 
                             <div class="timeline">
                                 <div class="timeline-item">
-                                    <strong>9:30-10:15</strong> - 書斎で相澤と契約更新の交渉。報酬70%カットを一方的に通告され、さらに違法行為の証拠で脅迫される。
+                                    <strong>9:30-10:15</strong> - 書斎（LDK）で相澤と契約更新の交渉。報酬70%カットを一方的に通告され、さらに違法行為の証拠で脅迫される。
                                 </div>
                                 <div class="timeline-item">
-                                    <strong>10:15</strong> - 相澤に追い出される形で書斎を出る。廊下Aを通って玄関ホールへ（カメラに記録: 10:16）。廊下Bを経由してリビングに移動し、契約書を見直しながら怒りが頂点に達する。
+                                    <strong>10:15</strong> - 相澤に追い出される形で書斎を出る。廊下を通って浴室へ（カメラに記録: 10:16）。トイレで顔を洗い、怒りを鎮めようとするが頂点に達する。
                                 </div>
                                 <div class="timeline-item">
-                                    <strong>10:20</strong> - 弁護士生命を守るため、証拠書類を奪い返すことを決意。リビングから廊下B→玄関ホール→廊下Aを経由して書斎へ向かう（L字型構造の死角を熟知）。カメラの映らないタイミングを見計らって移動。
+                                    <strong>10:18</strong> - 弁護士生命を守るため、証拠書類を奪い返すことを決意。浴室から廊下を通り、書斎（LDK）のDKエリアに入る。相澤はリビング部分にいるため気づかない。
                                 </div>
                                 <div class="timeline-item">
-                                    <strong>10:22</strong> - 書斎に戻り、金庫の証拠を要求。相澤が拒否し、「明日警察に通報する」と告げる。追い詰められた黒木は衝動的に書鎮を手に取る。
+                                    <strong>10:20</strong> - DKエリアから奥のリビング部分へ。金庫の証拠を要求。相澤が拒否し、「明日警察に通報する」と告げる。追い詰められた黒木は衝動的に書鎮を手に取る。
                                 </div>
                                 <div class="timeline-item">
-                                    <strong>10:23</strong> - 相澤の背後から書鎮で後頭部を一撃。即死させる。指紋を拭き取り、書鎮をそのまま現場に残す（持ち出すとリスクが高いため）。
+                                    <strong>10:22</strong> - 相澤の背後から書鎮で後頭部を一撃。即死させる。指紋を拭き取り、書鎮をそのまま現場に残す（持ち出すとリスクが高いため）。
                                 </div>
                                 <div class="timeline-item">
-                                    <strong>10:25</strong> - 金庫から証拠書類を奪い、同じルート（廊下A→玄関ホール→廊下B）でリビングに戻る。何事もなかったかのように書類整理を再開。
+                                    <strong>10:23</strong> - 金庫から証拠書類を奪い、DKエリアの食卓に戻る。何事もなかったかのように書類整理を再開。カメラには映らない場所で過ごす。
                                 </div>
                             </div>
 
                             <h3>決定的な証拠</h3>
                             <p>黒木を真犯人と特定する根拠:</p>
                             <ul style="margin-left: 30px; line-height: 2;">
-                                <li><strong>犯行可能時刻:</strong> 10:16-10:30の間、黒木はリビング（死角エリア）で一人。玄関ホールのカメラに10:16に映った後、記録なし。この時間帯に書斎へ往復できた唯一の人物。</li>
-                                <li><strong>L字型構造の死角利用:</strong> リビング・廊下Bエリアは玄関ホールのカメラの死角。黒木は顧問として間取りを熟知しており、プライベートウィング（廊下A）とパブリックエリア（廊下B）の構造的分離を利用できた。</li>
-                                <li><strong>証拠書類の消失:</strong> 書斎の金庫に保管されていた黒木の違法行為に関する証拠が、事件後に消えている。犯人だけが奪える。</li>
+                                <li><strong>犯行可能時刻:</strong> 10:16-10:30の間、黒木は書斎（LDK）のDKエリア（死角）にいたと証言。玄関ホールのカメラに10:16に映った後、書斎内にいたかは確認不能。この時間帯に書斎内で自由に移動できた人物。</li>
+                                <li><strong>書斎内の死角利用:</strong> LDKは広く、DK部分と奥のリビング部分に分かれている。廊下からは一部しか見えず、DKエリアで何をしていたかは確認不能。黒木は顧問として間取りを熟知しており、カメラの死角を利用できた。</li>
+                                <li><strong>証拠書類の消失:</strong> 書斎の金庫に保管されていた黒木の違法行為に関する証拠が、事件後に消えている。書斎内にいた黒木だけが奪える。</li>
                                 <li><strong>動機の強さ:</strong> 弁護士資格剥奪と収入源喪失の危機。他の容疑者より遥かに切迫した状況。</li>
-                                <li><strong>矛盾する証言:</strong> 「10時半頃、廊下で物音がした」と証言。しかし他の誰も聞いていない。自分が廊下A-玄関ホール間を移動した音を、誰かがいたかのように偽装。</li>
+                                <li><strong>矛盾する証言:</strong> 「DKエリアでずっと書類整理をしていた」と証言。しかし食卓のメモは10時20分以降のもののみ。10時16分～10時20分の行動が不明瞭。</li>
                             </ul>
 
                             <h3>動機</h3>
                             <p>10年間相澤の「汚れ仕事」を引き受けてきた黒木。しかし相澤は恩を仇で返し、黒木の違法行為の証拠を掴んで脅迫。報酬も70%カットを一方的に通告。弁護士生命と収入の両方を失う絶望的状況で、証拠を奪い返すために書斎に戻ったが、相澤が「明日警察に通報する」と告げたため、衝動的に殺害に至った。</p>
 
                             <h3>その他の容疑者について</h3>
-                            <p><strong>水野美咲:</strong> 10:26に玄関ホールのカメラに記録（廊下A→廊下B）。10時35分から電話記録あり。時間的に可能だが、キッチンでケトルを使用した記録（10:28）もあり、犯行後の行動としては不自然。</p>
-                            <p><strong>相澤麻衣:</strong> 10時15分までビデオ会議中。画面に映っており、物理的に不可能。10:19に玄関ホールのカメラに記録（廊下A→廊下B）。</p>
-                            <p><strong>田中健太:</strong> 10:02に玄関ホールのカメラに記録後、ゲストルームで資料整理。犯行時刻に書斎への往復を目撃されておらず、カメラにも映っていない。</p>
-                            <p><strong>佐藤優子:</strong> 10:25分まで廊下Aで待機後、10:28に玄関ホールのカメラに記録（廊下A→廊下B、リビング方向）。書斎のドアノブに指紋なし。入室していない。</p>
-                            <p><strong>山本大輔:</strong> 10時以降バルコニー（書斎隣）で喫煙。10:36に玄関ホールのカメラに記録（廊下A→廊下B）。バルコニーから書斎への直接アクセスは可能だが、10:35までバルコニーにいた証拠（タバコ4本分の時間）あり。</p>
+                            <p><strong>水野美咲:</strong> 10時25分に書斎を出た後、直接キッチンへ。ケトル使用記録（10:27）あり。10時35分から電話記録。犯行時刻には書斎を出ており、キッチン・洋室1を移動中。</p>
+                            <p><strong>相澤麻衣:</strong> 10時15分までビデオ会議中。画面に映っており、物理的に不可能。その後キッチン→バルコニーで過ごす。主寝室とキッチンの移動は死角だが、時間的に犯行は困難。</p>
+                            <p><strong>田中健太:</strong> 10:02に玄関ホールのカメラに記録後、洋室2（ゲストルーム）で資料整理。犯行時刻に書斎への往復を目撃されておらず、カメラにも映っていない。死角エリアだが物的証拠なし。</p>
+                            <p><strong>佐藤優子:</strong> 10:25分まで廊下で待機後、キッチンで水を飲む（10:28頃）。書斎のドアノブに指紋なし。入室していない。廊下・キッチンは死角だが犯行の証拠なし。</p>
+                            <p><strong>山本大輔:</strong> 10時以降バルコニー（書斎に面している）で喫煙。タバコ4本分の吸い殻（10:00-10:35推定）。バルコニーから書斎への直接アクセスは可能だが、喫煙時間と矛盾。</p>
                         </div>
 
                         <button class="start-btn" onclick="location.reload()">もう一度プレイ</button>
@@ -2061,16 +2126,16 @@
         function getInnocenceReason(suspectIndex) {
             console.log('getInnocenceReason called with index:', suspectIndex);
             const reasons = [
-                `<p>水野美咲は10時25分に書斎を出た後、廊下A→玄関ホール→廊下Bを経由してキッチンへ移動。玄関ホールのカメラに10時26分に記録されています。キッチンで電気ケトルを使用した記録（10時28分）があり、10時32分には自室に戻り、10時35分から電話をしています。</p>
-                <p>犯行時刻（10:20-10:25）には既に書斎を出ており、カメラに記録された動線と一致します。水野が犯人であれば、なぜわざわざキッチンでケトルを使用したのか説明がつきません。これは無実の証拠と考えられます。</p>`,
-                `<p>相澤麻衣は9時から10時15分まで、パリのバイヤーとビデオ会議中でした。相手側の記録でも確認されており、画面に映り続けていたため、物理的に犯行は不可能です。推定死亡時刻（10:20-10:25）の間、彼女は確実に自室（廊下A沿い）のPC画面の前にいました。</p>
-                <p>10時19分に玄関ホールのカメラに記録（廊下A→廊下B方向へ移動）され、その後キッチンで軽食を取っていた証拠もあり、完璧なアリバイがあります。</p>`,
-                `<p>田中健太は確かに相澤と激しく対立していましたが、10時02分に玄関ホールのカメラに記録された後はゲストルームにいたと証言しています。犯行時刻（10:20-10:25）に玄関ホール→廊下Aを経由して書斎へアクセスした記録はカメラに残っておらず、現場に田中を結びつける物的証拠もありません。</p>
-                <p>動機は強いものの、L字型構造上、ゲストルームから書斎へは必ず玄関ホールを通る必要があり、犯行時刻に書斎へアクセスした証拠がないため、有罪とするには不十分です。</p>`,
-                `<p>佐藤優子は10時25分頃まで廊下Aで待機し、水野が書斎から出てくるのを目撃しています。その後、書斎のドアノブに触れた形跡もなく（指紋なし）、10時28分に玄関ホールのカメラに記録（廊下A→廊下B、リビング方向へ移動）されています。</p>
-                <p>10時40分には廊下Bで麻衣と遭遇しており、カメラに記録された時間軸と証言が一致します。犯行時刻（10:20-10:25）には廊下Aで待機中であり、書斎に入る機会はありませんでした。</p>`,
-                `<p>山本大輔は10時に書斎を出た後、すぐ隣のバルコニーで10時35分頃までタバコを吸っていました。灰皿には吸い殻4本があり、証言と一致します。10時36分に玄関ホールのカメラに記録（廊下A→廊下B方向へ移動）されています。</p>
-                <p>バルコニーは書斎に隣接しており直接アクセス可能ですが、犯行時刻（10:20-10:25）は喫煙中と推定されます。また、10時50分に田中に目撃されており、この時間まで書斎に戻った証拠はありません。</p>`,
+                `<p>水野美咲は10時25分に書斎（LDK）を出た後、直接キッチンへ移動しています。キッチンで電気ケトルを使用した記録（10時27分）があり、10時32分には洋室1（自室）に戻り、10時35分から電話をしています。</p>
+                <p>犯行時刻（10:20-10:25）には書斎で相澤と面談中であり、10時25分に退出後はキッチン・自室を移動。水野が犯人であれば、なぜわざわざキッチンでケトルを使用し、その後電話をしたのか説明がつきません。これは無実の証拠と考えられます。</p>`,
+                `<p>相澤麻衣は9時から10時15分まで、パリのバイヤーとビデオ会議中でした。相手側の記録でも確認されており、画面に映り続けていたため、物理的に犯行は不可能です。推定死亡時刻（10:20-10:25）の間、彼女は確実に主寝室のPC画面の前にいました。</p>
+                <p>10時18分頃に主寝室を出てキッチンへ向かい（10時22分頃使用）、その後バルコニーで過ごしています。主寝室・キッチンの移動は玄関ホールのカメラの死角ですが、ビデオ会議のタイムスタンプが完璧なアリバイを証明しています。</p>`,
+                `<p>田中健太は確かに相澤と激しく対立していましたが、10時02分に玄関ホールのカメラに記録された後は洋室2（ゲストルーム）にいたと証言しています。犯行時刻（10:20-10:25）に廊下を通って書斎へアクセスした記録はカメラに残っておらず、現場に田中を結びつける物的証拠もありません。</p>
+                <p>動機は強いものの、ゲストルームから書斎へは廊下を通る必要があり、犯行時刻に書斎へアクセスした証拠がないため、有罪とするには不十分です。玄関ホールから洋室2への廊下は一部死角ですが、それだけでは証拠になりません。</p>`,
+                `<p>佐藤優子は10時25分頃まで廊下で待機し、水野が書斎から出てくるのを目撃しています。その後、書斎のドアノブに触れた形跡もなく（指紋なし）、キッチンで水を飲んでいます（10時28分頃のグラス使用記録）。</p>
+                <p>10時40分頃にトイレへ向かう途中で麻衣と遭遇しており、証言と物的証拠が一致します。犯行時刻（10:20-10:25）には廊下で待機中であり、書斎に入った証拠はありません。廊下・キッチンエリアは玄関ホールのカメラの死角ですが、犯行を示す証拠がありません。</p>`,
+                `<p>山本大輔は10時に書斎を出た後、バルコニー（書斎に面している）で10時35分頃までタバコを吸っていました。灰皿には吸い殻4本があり、証言と一致します（約35分間の喫煙）。10時36分に玄関ホールのカメラに記録されています。</p>
+                <p>バルコニーは書斎に面しており直接アクセス可能ですが、犯行時刻（10:20-10:25）は喫煙中と推定されます。タバコ4本を吸うのに要する時間（約30-40分）と、10時から10時35分までバルコニーにいたという証言が整合しています。</p>`,
                 null // 黒木（真犯人）
             ];
 
