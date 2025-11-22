@@ -142,7 +142,7 @@
 
         .suspects-grid {
             display: grid;
-            grid-template-columns: repeat(5, 1fr);
+            grid-template-columns: repeat(6, 1fr);
             gap: 15px;
         }
 
@@ -165,6 +165,21 @@
         .suspect-card.active {
             border-color: var(--accent-gold);
             background: rgba(212, 175, 55, 0.1);
+        }
+
+        .suspect-card.info-card {
+            background: rgba(42, 47, 74, 0.9);
+            border-color: rgba(100, 150, 255, 0.5);
+        }
+
+        .suspect-card.info-card:hover {
+            border-color: rgba(100, 150, 255, 0.8);
+            box-shadow: 0 4px 12px rgba(100, 150, 255, 0.3);
+        }
+
+        .suspect-card.info-card.active {
+            border-color: rgba(100, 150, 255, 1);
+            background: rgba(100, 150, 255, 0.15);
         }
 
 
@@ -601,6 +616,50 @@
             }
         }
 
+        /* Dashboard styles */
+        .dashboard {
+            padding: 20px;
+        }
+
+        .dashboard h2 {
+            color: rgba(100, 150, 255, 1);
+            font-size: 2em;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .dashboard-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .dashboard-section {
+            background: rgba(26, 31, 58, 0.6);
+            border: 2px solid var(--border-color);
+            border-radius: 10px;
+            padding: 20px;
+        }
+
+        .dashboard-section h3 {
+            color: rgba(100, 150, 255, 0.9);
+            margin-bottom: 15px;
+            font-size: 1.3em;
+            border-bottom: 2px solid rgba(100, 150, 255, 0.3);
+            padding-bottom: 10px;
+        }
+
+        .dashboard-evidence-grid {
+            display: grid;
+            gap: 10px;
+        }
+
+        @media (max-width: 900px) {
+            .dashboard-grid {
+                grid-template-columns: 1fr;
+            }
+        }
 
         /* Evidence improvements */
         .evidence-category {
@@ -805,13 +864,15 @@
             text-align: right;
         }
 
+        @media (max-width: 1400px) {
+            .suspects-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
         @media (max-width: 1200px) {
             .game-layout {
                 grid-template-columns: 1fr;
-            }
-
-            .suspects-grid {
-                grid-template-columns: repeat(3, 1fr);
             }
 
             h1 {
@@ -909,23 +970,27 @@
                 <div class="suspects-grid">
                     <div class="suspect-card" onclick="showSuspect(0)">
                         <div class="suspect-name">水野美咲</div>
-                        <div class="suspect-role">秘書・29歳</div>
+                        <div class="suspect-role">秘書</div>
                     </div>
                     <div class="suspect-card" onclick="showSuspect(1)">
                         <div class="suspect-name">相澤麻衣</div>
-                        <div class="suspect-role">妻・34歳</div>
+                        <div class="suspect-role">妻</div>
                     </div>
                     <div class="suspect-card" onclick="showSuspect(2)">
                         <div class="suspect-name">田中健太</div>
-                        <div class="suspect-role">ビジネスパートナー・42歳</div>
+                        <div class="suspect-role">ビジネスパートナー</div>
                     </div>
                     <div class="suspect-card" onclick="showSuspect(3)">
                         <div class="suspect-name">佐藤優子</div>
-                        <div class="suspect-role">元恋人・31歳</div>
+                        <div class="suspect-role">元恋人</div>
                     </div>
                     <div class="suspect-card" onclick="showSuspect(4)">
                         <div class="suspect-name">山本大輔</div>
-                        <div class="suspect-role">弟・33歳</div>
+                        <div class="suspect-role">弟</div>
+                    </div>
+                    <div class="suspect-card info-card" onclick="showDashboard()">
+                        <div class="suspect-name">情報一覧</div>
+                        <div class="suspect-role">ダッシュボード</div>
                     </div>
                 </div>
             </div>
@@ -1362,6 +1427,77 @@
                         <h3>尋問</h3>
                         ${questionsHTML}
                     </div>
+                </div>
+            `;
+        }
+
+        function showDashboard() {
+            const cards = document.querySelectorAll('.suspects-grid .suspect-card');
+            cards.forEach((card, i) => {
+                card.classList.toggle('active', i === 5);
+            });
+
+            const mainPanel = document.getElementById('mainPanel');
+
+            // 被害者情報
+            const victimInfoHTML = `
+                <div class="victim-info">
+                    <p><strong>被害者:</strong> 相澤隆一（あいざわ りゅういち）</p>
+                    <p><strong>死亡推定時刻:</strong> 午後10時30分〜11時00分</p>
+                    <p><strong>死因:</strong> 後頭部への鈍器による強打。凶器は未発見。</p>
+                    <p><strong>発見状況:</strong> 書斎にて倒れているところを秘書が発見。窓は施錠され、玄関の電子ロックには不審な記録なし。</p>
+                </div>
+            `;
+
+            // 基本情報
+            const basicInfoHTML = `
+                <div class="evidence-item">
+                    被害者の自宅は32階建ての最上階。エレベーターは暗証番号式で、その夜のログには5人の容疑者のみが記録されている。
+                </div>
+                <div class="evidence-item">
+                    書斎のドアは内側から施錠されていなかった。被害者のスマートフォンには午後10時23分に着信履歴あり。
+                </div>
+            `;
+
+            // 収集した証拠を容疑者ごとに整理
+            let evidenceByPersonHTML = '';
+            suspects.forEach((suspect, index) => {
+                if (evidenceBySuspect[index].length > 0) {
+                    let evidenceItems = '';
+                    evidenceBySuspect[index].forEach(evidence => {
+                        evidenceItems += `<div class="evidence-item">${evidence}</div>`;
+                    });
+                    evidenceByPersonHTML += `
+                        <div class="dashboard-section">
+                            <h3>🔍 ${suspect.name}の証拠</h3>
+                            <div class="dashboard-evidence-grid">
+                                ${evidenceItems}
+                            </div>
+                        </div>
+                    `;
+                }
+            });
+
+            mainPanel.innerHTML = `
+                <div class="dashboard">
+                    <h2>📊 情報ダッシュボード</h2>
+
+                    <div class="dashboard-section" style="margin-bottom: 20px;">
+                        <h3>👤 被害者情報</h3>
+                        ${victimInfoHTML}
+                    </div>
+
+                    <div class="dashboard-section" style="margin-bottom: 20px;">
+                        <h3>📋 基本情報</h3>
+                        ${basicInfoHTML}
+                    </div>
+
+                    ${evidenceByPersonHTML ? `
+                        <h3 style="color: rgba(100, 150, 255, 0.9); margin: 30px 0 20px 0; font-size: 1.5em;">収集した証拠</h3>
+                        <div class="dashboard-grid">
+                            ${evidenceByPersonHTML}
+                        </div>
+                    ` : '<p style="text-align: center; color: var(--text-dim); margin-top: 30px;">まだ証拠を収集していません。容疑者に質問して証拠を集めましょう。</p>'}
                 </div>
             `;
         }
