@@ -490,6 +490,16 @@
         .result-screen {
             display: none;
             text-align: center;
+            background: rgba(26, 31, 58, 0.8);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 40px;
+            border: 1px solid var(--border-color);
+            box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+        }
+
+        .result-screen.active {
+            display: block;
         }
 
         .result-title {
@@ -1519,19 +1529,48 @@
                 return;
             }
 
-            closeAccusationModal();
-            showResult(gameState.selectedSuspect === 'tanaka');
+            console.log('submitAccusation - selectedSuspect:', gameState.selectedSuspect);
+
+            // 選択された容疑者を保存してからモーダルを閉じる
+            const selectedSuspectId = gameState.selectedSuspect;
+            document.getElementById('accusationModal').style.display = 'none';
+
+            showResult(selectedSuspectId === 'tanaka', selectedSuspectId);
         }
 
         // 結果表示
-        function showResult(isCorrect) {
-            document.getElementById('gameScreen').style.display = 'none';
-            const resultScreen = document.getElementById('resultScreen');
-            resultScreen.style.display = 'block';
+        function showResult(isCorrect, selectedSuspectId) {
+            console.log('showResult called, isCorrect:', isCorrect, 'selectedSuspectId:', selectedSuspectId);
 
-            const selectedSuspect = suspects.find(s => s.id === gameState.selectedSuspect);
+            // 全画面を非表示
+            const introScreen = document.getElementById('introScreen');
+            const gameScreen = document.getElementById('gameScreen');
+            const resultScreen = document.getElementById('resultScreen');
+
+            if (introScreen) introScreen.style.display = 'none';
+            if (gameScreen) gameScreen.style.display = 'none';
+
+            // 結果画面を表示
+            if (resultScreen) {
+                resultScreen.classList.add('active');
+                resultScreen.style.display = 'block';
+                console.log('resultScreen display set to block');
+            } else {
+                console.error('resultScreen not found');
+                return;
+            }
+
+            const selectedSuspect = suspects.find(s => s.id === selectedSuspectId);
+            console.log('selectedSuspect:', selectedSuspect);
+
+            if (!selectedSuspect) {
+                console.error('selectedSuspect not found for id:', selectedSuspectId);
+                alert('エラーが発生しました。もう一度お試しください。');
+                return;
+            }
 
             if (isCorrect) {
+                console.log('Correct answer - changing to clearBGM');
                 changeBGM('clearBGM', '栄光のファンファーレ');
 
                 resultScreen.innerHTML = `
@@ -1573,39 +1612,37 @@
                     <button class="restart-btn" onclick="location.reload()">もう一度プレイする</button>
                 `;
             } else {
+                console.log('Wrong answer - changing to default BGM');
+                changeBGM('defaultBGM', '深怪な謎');
                 resultScreen.innerHTML = `
                     <h2 class="result-title failure">不正解...</h2>
                     <div class="explanation">
                         <p>あなたは<strong>${selectedSuspect.name}</strong>を告発しましたが、それは間違いでした。</p>
 
-                        <h3>真犯人は...</h3>
-                        <p><strong>田中健太</strong>でした。</p>
-
-                        <h3>見逃した証拠</h3>
-                        <p>決定的だったのは<strong>複数の目撃証言</strong>です。</p>
-                        <p>・水野: 「田中さんが23:00過ぎに5分くらいいなくなった」</p>
-                        <p>・黒木: 「田中さんは23:03頃に戻ってきた。顔色が悪かった」</p>
-                        <p>・佐藤、山本: 田中の不在を裏付け</p>
-
-                        <h3>田中の犯行</h3>
-                        <div class="timeline">
-                            <div class="timeline-item"><strong>23:00</strong> - 相澤が書斎へ移動、田中がリビングを離れる</div>
-                            <div class="timeline-item"><strong>23:00-23:03</strong> - 田中が書斎で相澤を殺害</div>
-                            <div class="timeline-item"><strong>23:03</strong> - 田中がリビングへ戻る</div>
-                        </div>
-
-                        <p>リビングから書斎まで往復40秒 + 犯行3分 = 約4分。</p>
-                        <p>これが証言の「5分くらい」「23:03頃に戻ってきた」と完全に一致します。</p>
+                        <h3>もう一度調査してみましょう</h3>
+                        <p>証拠や証言をもう一度よく確認してください。</p>
+                        <p>特に以下のポイントに注目してみましょう：</p>
+                        <ul style="text-align: left; display: inline-block; margin: 20px 0;">
+                            <li>死亡推定時刻は23:00（±3分）</li>
+                            <li>各容疑者のアリバイと証言を照合する</li>
+                            <li>犯行に必要な時間と移動時間を計算する</li>
+                            <li>他の容疑者の証言で裏付けられているか確認する</li>
+                        </ul>
 
                         <p style="margin-top: 30px; text-align: center; font-size: 1.1em;">
-                            もう一度挑戦してみましょう!
+                            諦めずにもう一度挑戦してみましょう！
                         </p>
                     </div>
                     <button class="restart-btn" onclick="location.reload()">もう一度プレイする</button>
                 `;
             }
 
-            resultScreen.scrollIntoView({ behavior: 'smooth' });
+            // DOMが更新されてからスクロール
+            console.log('Setting up scroll to result screen');
+            setTimeout(() => {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+                console.log('Scrolled to top');
+            }, 200);
         }
 
         // モーダル外クリックで閉じる
