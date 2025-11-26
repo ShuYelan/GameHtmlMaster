@@ -1209,34 +1209,67 @@
                 font-size: 0.7em;
             }
 
-            /* BGMコントロール スマホ対応 */
+            /* BGMコントロール スマホ対応 - コンパクト版 */
             .bgm-control {
-                bottom: 10px;
-                right: 10px;
-                padding: 10px;
+                bottom: 8px;
+                right: 8px;
+                padding: 6px 10px;
+                border-radius: 10px;
+                border-width: 1px;
             }
 
             .bgm-control.expanded {
-                left: 10px;
-                right: 10px;
-                min-width: auto;
+                left: auto;
+                right: 8px;
+                min-width: 180px;
+                padding: 8px 12px;
+            }
+
+            .bgm-header {
+                gap: 6px;
             }
 
             .bgm-title {
-                font-size: 0.8em;
+                font-size: 0.7em;
+            }
+
+            .bgm-toggle-icon {
+                font-size: 0.6em;
+            }
+
+            .bgm-now-playing {
+                font-size: 0.7em;
+                margin-top: 6px;
+            }
+
+            .bgm-controls {
+                margin-top: 8px;
+                padding-top: 8px;
+                gap: 8px;
             }
 
             .bgm-mute-btn {
-                padding: 6px 12px;
-                font-size: 0.8em;
+                padding: 4px 8px;
+                font-size: 0.7em;
+                border-radius: 5px;
+            }
+
+            .volume-control {
+                gap: 6px;
             }
 
             .volume-slider {
-                height: 5px;
+                height: 4px;
+            }
+
+            .volume-slider::-webkit-slider-thumb {
+                width: 12px;
+                height: 12px;
             }
 
             .volume-label {
-                font-size: 0.75em;
+                font-size: 0.65em;
+                min-width: 28px;
             }
         }
 
