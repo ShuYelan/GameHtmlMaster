@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>東京ミッドナイト殺人事件</title>
+    <title>グランドパレス殺人事件</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=Noto+Serif+JP:wght@400;600&display=swap');
 
@@ -182,20 +182,6 @@
             background: rgba(100, 150, 255, 0.15);
         }
 
-        .suspect-card.accusation-card {
-            background: rgba(139, 0, 0, 0.3);
-            border-color: var(--accent-red);
-        }
-
-        .suspect-card.accusation-card:hover {
-            border-color: var(--accent-red);
-            box-shadow: 0 4px 12px rgba(139, 0, 0, 0.5);
-        }
-
-        .suspect-card.accusation-card .suspect-name {
-            color: var(--accent-red);
-        }
-
         .suspect-name {
             font-size: 1em;
             font-weight: 600;
@@ -232,6 +218,7 @@
             border-radius: 10px;
             padding: 20px;
             border: 1px solid var(--border-color);
+            max-height: 600px;
             overflow-y: auto;
             flex: 1;
         }
@@ -386,7 +373,7 @@
             border: 2px solid var(--accent-gold);
             border-radius: 15px;
             width: 95%;
-            max-width: 1100px;
+            max-width: 900px;
             max-height: 85vh;
             overflow-y: auto;
             box-shadow: 0 10px 50px rgba(0,0,0,0.5);
@@ -394,7 +381,7 @@
 
         #suspectOptions {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
             gap: 15px;
             margin-top: 30px;
         }
@@ -420,9 +407,6 @@
             cursor: pointer;
             transition: all 0.3s ease;
             text-align: center;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
         }
 
         .suspect-option:hover {
@@ -435,24 +419,6 @@
             border-color: var(--accent-red);
             background: rgba(139, 0, 0, 0.3);
             box-shadow: 0 8px 20px rgba(139, 0, 0, 0.5);
-        }
-
-        .suspect-option-image {
-            width: 100px;
-            height: 100px;
-            object-fit: cover;
-            border-radius: 50%;
-            border: 3px solid var(--border-color);
-            margin-bottom: 15px;
-            transition: all 0.3s ease;
-        }
-
-        .suspect-option:hover .suspect-option-image {
-            border-color: var(--accent-gold);
-        }
-
-        .suspect-option.selected .suspect-option-image {
-            border-color: var(--accent-red);
         }
 
         .suspect-option-name {
@@ -490,16 +456,6 @@
         .result-screen {
             display: none;
             text-align: center;
-            background: rgba(26, 31, 58, 0.8);
-            backdrop-filter: blur(10px);
-            border-radius: 15px;
-            padding: 40px;
-            border: 1px solid var(--border-color);
-            box-shadow: 0 8px 32px rgba(0,0,0,0.3);
-        }
-
-        .result-screen.active {
-            display: block;
         }
 
         .result-title {
@@ -541,241 +497,6 @@
             margin-bottom: 15px;
             padding-left: 20px;
             border-left: 2px solid var(--text-dim);
-        }
-
-        .scrollbar::-webkit-scrollbar {
-            width: 8px;
-        }
-
-        .scrollbar::-webkit-scrollbar-track {
-            background: rgba(26, 31, 58, 0.5);
-            border-radius: 4px;
-        }
-
-        .scrollbar::-webkit-scrollbar-thumb {
-            background: var(--accent-gold);
-            border-radius: 4px;
-        }
-
-        .scrollbar::-webkit-scrollbar-thumb:hover {
-            background: #b8941f;
-        }
-
-        .character-portrait {
-            width: 250px;
-            height: auto;
-            min-height: 200px;
-            max-height: 350px;
-            object-fit: cover;
-            border-radius: 10px;
-            border: 3px solid var(--accent-gold);
-            box-shadow: 0 4px 15px rgba(0,0,0,0.5);
-            flex-shrink: 0;
-        }
-
-        .suspect-header {
-            display: flex;
-            gap: 30px;
-            margin-bottom: 30px;
-            align-items: stretch;
-        }
-
-        .suspect-header-info {
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-        }
-
-        .suspect-header-info h2 {
-            color: var(--accent-gold);
-            margin-bottom: 20px;
-            font-size: 2em;
-        }
-
-        .suspect-header-section {
-            margin-bottom: 15px;
-        }
-
-        .suspect-header-section:last-child {
-            margin-bottom: 0;
-        }
-
-        .suspect-header-section h3 {
-            color: var(--accent-gold);
-            margin-bottom: 10px;
-            font-size: 1.1em;
-        }
-
-        .suspect-header-section p {
-            line-height: 1.8;
-        }
-
-        /* BGM Control Panel */
-        .bgm-control {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            background: rgba(26, 31, 58, 0.95);
-            backdrop-filter: blur(10px);
-            border: 2px solid var(--border-color);
-            border-radius: 15px;
-            padding: 15px;
-            z-index: 999;
-            box-shadow: 0 8px 32px rgba(0,0,0,0.3);
-            transition: all 0.3s ease;
-        }
-
-        .bgm-control.collapsed {
-            min-width: auto;
-        }
-
-        .bgm-control.expanded {
-            min-width: 280px;
-        }
-
-        .bgm-control:hover {
-            border-color: var(--accent-gold);
-        }
-
-        .bgm-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            gap: 10px;
-            cursor: pointer;
-            user-select: none;
-        }
-
-        .bgm-title {
-            font-size: 0.9em;
-            color: var(--accent-gold);
-            font-weight: 600;
-            letter-spacing: 0.05em;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .bgm-toggle-icon {
-            font-size: 0.8em;
-            transition: transform 0.3s ease;
-        }
-
-        .bgm-control.expanded .bgm-toggle-icon {
-            transform: rotate(180deg);
-        }
-
-        .bgm-now-playing {
-            font-size: 0.85em;
-            color: var(--text-dim);
-            margin-top: 10px;
-            font-style: italic;
-            overflow: hidden;
-            transition: all 0.3s ease;
-        }
-
-        .bgm-control.collapsed .bgm-now-playing {
-            max-height: 0;
-            margin-top: 0;
-            opacity: 0;
-        }
-
-        .bgm-controls {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            margin-top: 15px;
-            padding-top: 15px;
-            border-top: 1px solid var(--border-color);
-            overflow: hidden;
-            transition: all 0.3s ease;
-        }
-
-        .bgm-control.collapsed .bgm-controls {
-            max-height: 0;
-            margin-top: 0;
-            padding-top: 0;
-            opacity: 0;
-        }
-
-        .bgm-mute-btn {
-            background: rgba(212, 175, 55, 0.2);
-            border: 1px solid var(--accent-gold);
-            color: var(--accent-gold);
-            padding: 8px 15px;
-            border-radius: 8px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            font-family: 'Noto Sans JP', sans-serif;
-            font-size: 0.9em;
-            white-space: nowrap;
-        }
-
-        .bgm-mute-btn:hover {
-            background: rgba(212, 175, 55, 0.3);
-            transform: translateY(-1px);
-        }
-
-        .bgm-mute-btn.muted {
-            background: rgba(139, 0, 0, 0.3);
-            border-color: var(--accent-red);
-            color: var(--accent-red);
-        }
-
-        .volume-control {
-            flex: 1;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .volume-slider {
-            flex: 1;
-            -webkit-appearance: none;
-            appearance: none;
-            height: 6px;
-            background: rgba(42, 47, 74, 0.8);
-            border-radius: 3px;
-            outline: none;
-        }
-
-        .volume-slider::-webkit-slider-thumb {
-            -webkit-appearance: none;
-            appearance: none;
-            width: 16px;
-            height: 16px;
-            background: var(--accent-gold);
-            border-radius: 50%;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .volume-slider::-webkit-slider-thumb:hover {
-            background: #b8941f;
-            transform: scale(1.2);
-        }
-
-        .volume-slider::-moz-range-thumb {
-            width: 16px;
-            height: 16px;
-            background: var(--accent-gold);
-            border-radius: 50%;
-            cursor: pointer;
-            border: none;
-            transition: all 0.3s ease;
-        }
-
-        .volume-slider::-moz-range-thumb:hover {
-            background: #b8941f;
-            transform: scale(1.2);
-        }
-
-        .volume-label {
-            font-size: 0.85em;
-            color: var(--text-dim);
-            min-width: 35px;
-            text-align: right;
         }
 
         .floor-plan-container {
@@ -884,20 +605,6 @@
             h1 {
                 font-size: 2em;
             }
-
-            .bgm-control {
-                bottom: 15px;
-                right: 15px;
-                padding: 12px;
-            }
-
-            .bgm-control.expanded {
-                min-width: 250px;
-            }
-
-            #suspectOptions {
-                grid-template-columns: repeat(2, 1fr);
-            }
         }
 
         @media (max-width: 768px) {
@@ -905,84 +612,45 @@
                 grid-template-columns: repeat(2, 1fr);
             }
 
-            .suspect-header {
-                flex-direction: column;
-            }
-
-            .character-portrait {
-                width: 200px;
-                height: 200px;
-                margin: 0 auto;
-            }
-
             #suspectOptions {
                 grid-template-columns: 1fr;
             }
-        }
 
-        @media (max-width: 600px) {
-            .bgm-control.expanded {
-                left: 15px;
-                right: 15px;
-                min-width: auto;
+            .floor-plan {
+                padding: 15px;
+            }
+
+            .room {
+                min-width: 100px;
+                min-height: 80px;
+                padding: 15px;
             }
         }
     </style>
 </head>
 <body>
-    <!-- Audio Elements -->
-    <audio id="defaultBGM" loop>
-        <source src="fukakai-nazo_loop.ogg" type="audio/ogg">
-    </audio>
-    <audio id="accusationBGM">
-        <source src="resolution-or.mp3" type="audio/mpeg">
-    </audio>
-    <audio id="clearBGM">
-        <source src="victory-fanfare.mp3" type="audio/mpeg">
-    </audio>
-
-    <!-- BGM Control Panel -->
-    <div class="bgm-control collapsed" id="bgmControl">
-        <div class="bgm-header" onclick="toggleBGMPanel()">
-            <span class="bgm-title">
-                ♪ BGM
-                <span class="bgm-toggle-icon">▼</span>
-            </span>
-        </div>
-        <div class="bgm-now-playing" id="nowPlaying">深怪な謎</div>
-        <div class="bgm-controls">
-            <button class="bgm-mute-btn" id="muteBtn" onclick="toggleMute()">
-                <span id="muteText">🔊 ON</span>
-            </button>
-            <div class="volume-control">
-                <input type="range" min="0" max="100" value="50" class="volume-slider" id="volumeSlider">
-                <span class="volume-label" id="volumeLabel">50%</span>
-            </div>
-        </div>
-    </div>
-
     <div class="background-pattern"></div>
 
     <div class="container">
         <header>
-            <h1>東京ミッドナイト殺人事件</h1>
-            <p class="subtitle">TOKYO MIDNIGHT MURDER</p>
+            <h1>グランドパレス殺人事件</h1>
+            <p class="subtitle">～ホテルスイートに隠された真実～</p>
         </header>
 
         <!-- イントロ画面 -->
         <div class="intro-screen" id="introScreen">
             <div class="intro-content">
-                <p>2025年11月23日深夜、東京・六本木の高級ホテル「グランドパレス東京」最上階のスイートルームで殺人事件が発生した。</p>
+                <p>2025年11月23日深夜、東京の高級ホテル「グランドパレス東京」最上階のスイートルームで殺人事件が発生した。</p>
 
                 <div class="victim-info">
-                    <p><strong>被害者:</strong> 相澤隆一（38歳）IT企業社長</p>
-                    <p><strong>死亡推定時刻:</strong> 午後11時00分（±3分以内）</p>
+                    <p><strong>被害者:</strong> 藤堂健一郎（52歳）IT企業社長</p>
+                    <p><strong>死亡推定時刻:</strong> 午後11時00分（±5分以内）</p>
                     <p><strong>死因:</strong> 首を絞められたことによる窒息死</p>
                     <p><strong>凶器:</strong> 被害者が身につけていたネクタイ</p>
-                    <p><strong>発見状況:</strong> 23:05に書斎で秘書の水野美咲が発見</p>
+                    <p><strong>発見状況:</strong> 書斎にて倒れているところを秘書と恋人が発見</p>
                 </div>
 
-                <p>その夜、相澤のスイートルームには6人の人物が訪れた。全員に動機があり、全員にアリバイがある。</p>
+                <p>その夜、藤堂のスイートルームには5人が訪れた。全員に動機があり、全員にアリバイがある。</p>
                 <p>あなたは刑事として、証拠を集め、容疑者を尋問し、真犯人を突き止めなければならない。</p>
 
                 <button class="start-btn" onclick="startGame()">捜査を開始する</button>
@@ -1004,9 +672,18 @@
                 <!-- 右パネル -->
                 <div class="right-panel">
                     <!-- 証拠パネル -->
-                    <div class="evidence-panel scrollbar">
+                    <div class="evidence-panel">
                         <h3 class="panel-title">証拠品</h3>
                         <div id="evidenceList"></div>
+                    </div>
+
+                    <!-- 告発パネル -->
+                    <div class="accusation-panel">
+                        <h3 class="panel-title">告発</h3>
+                        <p style="font-size: 0.9em; margin-bottom: 15px; line-height: 1.6;">
+                            証拠が揃ったら、犯人を告発してください。一度しかチャンスはありません。
+                        </p>
+                        <button class="accusation-btn" onclick="openAccusationModal()">犯人を告発する</button>
                     </div>
                 </div>
             </div>
@@ -1022,7 +699,7 @@
             <span class="close" onclick="closeAccusationModal()">&times;</span>
             <h2 style="color: var(--accent-gold); text-align: center; margin-bottom: 20px;">犯人を選択してください</h2>
             <p style="text-align: center; color: var(--text-dim); margin-bottom: 20px;">
-                誰が真犯人だと思いますか? 一度選択すると取り消せません。
+                誰が真犯人だと思いますか?一度選択すると取り消せません。
             </p>
             <div id="suspectOptions"></div>
             <button class="submit-accusation" onclick="submitAccusation()">この人物を告発する</button>
@@ -1033,119 +710,112 @@
         // ゲームデータ
         const suspects = [
             {
-                id: "mizuno",
-                name: "水野美咲",
-                role: "秘書・29歳",
-                image: "Mizuno.png",
-                profile: "相澤の秘書として3年間勤務。慶應義塾大学経済学部卒業後、外資系コンサルティング会社を経て相澤の秘書に。有能でマルチタスクをこなす能力に長けており、相澤から絶大な信頼を得ていた。しかし最近は過度な要求や理不尽な指示に悩み、心身ともに疲弊していた。几帳面で責任感が強く、一度引き受けた仕事は最後までやり遂げる性格。",
-                motive: "相澤からのパワハラとセクハラに長年苦しんでいた。退職を申し出たが「業界で働けなくしてやる」と脅された。さらに、自分の企画を相澤に盗用され特許申請されていたことを知り、激怒していた。",
+                id: "takahashi",
+                name: "高橋麗子",
+                role: "元妻・42歳・弁護士",
+                profile: "藤堂の元妻。3年前に離婚。弁護士として独立して活躍している。",
+                motive: "離婚訴訟で藤堂の弁護士に騙され、不利な条件で離婚させられた。慰謝料も養育費も少額で、藤堂は再婚相手に多額の金を使っていることを最近知り、激怒していた。",
                 arrival: "22:00到着",
-                alibi: "22:00-22:30に書斎で面談。22:30に退室しリビングへ。22:45-23:00まで黒木、山本とリビングで待機。23:00に相澤が書斎へ移動後もリビングで待機。23:05に書斎へ行き遺体を発見。",
+                alibi: "22:00-22:30に書斎で面談。22:30に退室後、エレベーターでロビーへ。22:35にホテルのバーで目撃されている（防犯カメラで確認済み）。",
                 questions: [
                     {
-                        q: "22:30の面談後、どこにいましたか?",
-                        a: "リビングに移動して待機していました。黒木さんと山本さんも一緒でしたから、ずっと3人でいましたよ。",
-                        evidence: "黒木と山本の証言で裏付けられる。3人とも22:45-23:05の間はリビングにいた。"
+                        q: "藤堂と何を話しましたか?",
+                        a: "養育費の増額を求めました。でも、あの人は全く聞く耳を持たず...。22:30には諦めて部屋を出ました。その後はバーで飲んでいました。",
+                        evidence: "ホテルバーの防犯カメラに22:35から23:10まで高橋が映っている。エレベーターの記録で22:31に最上階から1階へ移動した記録あり。"
                     },
                     {
-                        q: "23:00-23:05の間、誰かリビングを離れましたか?",
-                        a: "田中さんが23:00過ぎに少しの間いなくなりました。トイレだと思っていましたが...5分くらい戻ってこなかったような。",
-                        evidence: "重要な証言。田中健太が23:00-23:05の間に不在だったことを証言。"
+                        q: "藤堂に恨みはありましたか?",
+                        a: "恨み?当然ありますよ。でも、私は法律で戦うつもりでした。暴力なんて使いません。",
+                        evidence: "高橋の法律事務所で藤堂に対する訴訟準備の書類が見つかっている。"
                     }
                 ]
             },
             {
-                id: "aizawa",
-                name: "相澤麻衣",
-                role: "妻・34歳・元モデル",
-                image: "Aizawa.png",
-                profile: "相澤と結婚して5年。元モデルとして雑誌の表紙を飾り一世を風靡した美貌の持ち主。現在は自身のファッションブランド「Mai Aizawa Collection」を経営し、実業家としても成功を収めている。しかし夫婦仲は冷え切っており、夫の度重なる浮気と横暴な態度に心を痛めていた。気品があり冷静沈着だが、内に秘めた情熱は激しい。",
-                motive: "夫の浮気相手が佐藤優子だと知り、離婚を決意。しかし夫は離婚に応じず、逆に「お前の会社を潰す」と脅していた。財産分与も不利な条件を突きつけられていた。",
+                id: "morita",
+                name: "森田誠",
+                role: "元部下・35歳・エンジニア",
+                profile: "藤堂の会社の元CTOで、天才プログラマーとして知られていた。1年前に突然解雇された。",
+                motive: "自分が開発した革新的なAI技術を藤堂に盗まれ、特許も会社名義で申請された。解雇後、競合他社への就職も藤堂の妨害で失敗。人生を破壊された。",
                 arrival: "22:15到着",
-                alibi: "22:15到着後、リビングで待機。22:30-23:00に書斎で面談。23:00に退室後、そのまま帰宅。23:05にタクシーで帰宅中（タクシー会社の記録で確認済み）。",
+                alibi: "22:15到着後リビングで待機。22:30-23:00にリビングで藤堂と面談。23:00に藤堂が書斎へ移動。その後、リビングで白石、北川と一緒にいたと主張。23:07に遺体発見。",
                 questions: [
                     {
-                        q: "23:00に面談が終わった後、すぐに帰りましたか?",
-                        a: "ええ。もう夫と話すことなんて何もありませんでしたから。エレベーターですぐに1階へ降りて、タクシーで帰りました。",
-                        evidence: "エレベーター記録で23:01に最上階から1階へ移動。タクシー会社の記録で23:05に配車、23:10に自宅到着。完全なアリバイ。"
+                        q: "藤堂との面談の後、どこにいましたか?",
+                        a: "23:00に藤堂さんが次の面談のため書斎へ行きました。私はリビングに残って...少し考え事をしていました。白石さんと北川さんもいましたよ。",
+                        evidence: "白石の証言:「23:00頃、森田さんは少しイライラした様子でリビングにいました。でも、私が23:05に書斎へ向かうまではそこにいたと思います」。北川の証言:「森田さん?23:00過ぎに一瞬姿が見えなくなった気がしますが...」"
+                    },
+                    {
+                        q: "藤堂との面談で何を話しましたか?",
+                        a: "技術の返還を求めました。でも、藤堂さんは笑って拒否しました。怒りを抑えるのに必死でした...",
+                        evidence: "森田のノートPCに藤堂への脅迫メールの下書きが残っている。「お前は必ず代償を払う」"
+                    },
+                    {
+                        q: "23:00から23:05の間、正確にどこにいましたか?",
+                        a: "リビングにいましたよ!ずっと!...ちょっとトイレに行ったかもしれませんが、それだけです!",
+                        evidence: "ホテルの間取りでは、リビングから書斎まで徒歩20秒程度。トイレはリビングの隣。"
                     }
                 ]
             },
             {
-                id: "tanaka",
-                name: "田中健太",
-                role: "ビジネスパートナー・42歳",
-                image: "Tanaka.png",
-                profile: "相澤と共同で事業を立ち上げた共同経営者。東京大学工学部卒業後、大手IT企業でエンジニアとして勤務。10年前に相澤と意気投合し、共にスタートアップを創業。技術面を一手に担い、会社の急成長に貢献してきた。真面目で誠実な性格だが、最近は相澤の強引な経営手法や不正な会計処理に悩まされ、精神的に追い詰められていた。",
-                motive: "相澤が会社の資金を私的流用し、その責任を田中に押し付けようとしていた。このままでは自分が刑務所行きになる可能性があった。相澤を消せば、すべての証拠を隠滅できる。",
-                arrival: "22:20到着",
-                alibi: "22:20到着後、リビングで待機。23:00-23:30の面談予定。23:00に相澤が書斎へ移動後もリビングで待機していたと主張。しかし、複数の証言で23:00-23:05の間に不在だったことが判明。",
+                id: "shiraishi",
+                name: "白石さくら",
+                role: "秘書・28歳",
+                profile: "藤堂の秘書として2年間勤務。真面目で有能だが、最近は疲れた様子が目立っていた。",
+                motive: "藤堂から繰り返しセクハラを受けていた。さらに、残業代を含む給与の未払いが半年分も溜まっており、生活が苦しかった。退職を申し出たが「業界で働けなくしてやる」と脅された。",
+                arrival: "22:45到着",
+                alibi: "22:45到着後、リビングで待機。23:00から面談予定だったが、藤堂が時間通りに来なかったため、23:05に書斎をノック。返事がないため山本と一緒に書斎を開け、23:07に遺体を発見。",
                 questions: [
                     {
-                        q: "23:00から23:05の間、どこにいましたか?",
-                        a: "リビングで待っていましたよ!ずっと!...あ、そういえばトイレに行ったかもしれません。でも、すぐ戻りました!",
-                        evidence: "水野の証言:「田中さんが23:00過ぎに5分くらいいなくなった」。佐藤の証言:「田中さんの姿が見えない時間があった」。黒木の証言:「田中さんは23:03頃に戻ってきた」。"
+                        q: "23:05に書斎をノックした時の状況を詳しく教えてください",
+                        a: "23:00になっても藤堂さんが来ないので、23:05に書斎へ行きました。ノックしても返事がなくて...その時、山本さんがちょうど到着したんです。一緒にドアを開けたら...",
+                        evidence: "山本由美の証言と一致。エレベーター記録で山本の到着は23:05。"
                     },
                     {
-                        q: "相澤との金銭トラブルについて教えてください",
-                        a: "...それは誤解です。確かに会計に問題はありましたが、私は関係ありません。相澤が勝手にやったことです!",
-                        evidence: "相澤のPCに田中を告訴する準備書類。「会社資金横領の証拠」というフォルダに田中の署名入り書類。"
-                    },
-                    {
-                        q: "なぜトイレに5分もかかったのですか?",
-                        a: "え...その...体調が悪くて...。でも、書斎には行っていません!",
-                        evidence: "リビングから書斎まで徒歩20秒。往復40秒+犯行3分=約4分。田中の不在時間と一致。"
+                        q: "リビングで待っている間、誰か書斎の方へ行きましたか?",
+                        a: "えっと...森田さんが23:00過ぎに少し席を外したような...でも、すぐ戻ってきたような気がします。はっきり覚えていません。",
+                        evidence: "白石の証言は曖昧。北川は「23:00-23:05の間、森田の姿が一時的に見えなかった」と証言。"
                     }
                 ]
             },
             {
-                id: "sato",
-                name: "佐藤優子",
-                role: "元恋人・31歳",
-                image: "Sato.png",
-                profile: "相澤の大学時代の恋人。早稲田大学文学部卒業後、出版社で編集者として働いている。知的で感受性豊かな性格。5年前に相澤が麻衣と結婚したことで心を痛めながら別れたが、半年前に偶然再会し、相澤の甘い言葉に惑わされ再び関係を持つようになっていた。しかし次第に自分が都合よく利用されていることに気づき始めていた。",
-                motive: "相澤から「もう一度やり直そう」と言われ信じていたが、実は遊びだったと知る。妊娠を告げると「堕ろせ、さもないとお前の経歴を潰す」と脅された。",
-                arrival: "22:30到着",
-                alibi: "22:30到着後、リビングで待機。22:45-23:00の間に相澤と口論（リビングで）。23:00に相澤が書斎へ移動後、リビングで黒木、山本、水野と待機。23:05まで4人一緒にいた。",
+                id: "kitagawa",
+                name: "北川隆史",
+                role: "ビジネスパートナー・48歳",
+                profile: "藤堂の会社に投資している実業家。数々の事業を成功させてきた敏腕投資家。",
+                motive: "藤堂が会社の資金5000万円を個人的に流用していることを発見。問い詰めたが、逆に「お前も脱税しているだろう」と脅された。このままでは自分も警察に通報されかねない。",
+                arrival: "22:50到着",
+                alibi: "22:50到着後、リビングで待機。23:15から面談予定。23:00-23:07の間、ずっとリビングにいたと主張。白石、森田と一緒だった。",
                 questions: [
                     {
-                        q: "23:00から23:05の間、リビングにいましたね?",
-                        a: "はい。水野さん、黒木さん、山本さんと一緒にいました。田中さんだけが少しいなくなりましたけど...。",
-                        evidence: "水野、黒木、山本の証言と一致。佐藤のアリバイは確実。"
+                        q: "リビングで待っている間、何か気づいたことは?",
+                        a: "森田さんが23:00過ぎに一瞬いなくなったような気がします。トイレかと思いましたが...5分もしないで戻ってきました。",
+                        evidence: "この証言は重要。北川は森田が23:00-23:05の間に不在だったことを明確に証言している。"
+                    },
+                    {
+                        q: "藤堂との金銭トラブルについて教えてください",
+                        a: "...それは誤解です。確かに会計に問題はありましたが、今夜話し合って解決するつもりでした。",
+                        evidence: "北川の会社の口座記録に不審な取引履歴。藤堂はこれを握っていた可能性が高い。"
                     }
                 ]
             },
             {
                 id: "yamamoto",
-                name: "山本大輔",
-                role: "義弟・33歳",
-                image: "Yamamoto.png",
-                profile: "相澤の妻・麻衣の実弟。地方の大学を卒業後、姉の夫である相澤の会社に入社。営業部に配属され真面目に働いているが、義兄からは常に能力不足と叱責され、昇進の機会も与えられず冷遇されていた。姉思いで優しい性格だが、義兄に対しては複雑な感情を抱いている。最近は姉が浮気で苦しんでいることを知り、義兄への憤りが募っていた。",
-                motive: "相澤から日常的にパワハラを受け、給与も不当に低く抑えられていた。さらに、姉の麻衣が浮気で苦しんでいることも知っており、義兄への恨みは頂点に達していた。",
-                arrival: "22:40到着",
-                alibi: "22:40到着後、リビングで待機。23:15-23:45の面談予定。23:00-23:05の間、水野、黒木、佐藤とリビングで待機。4人一緒にいたため、アリバイあり。",
+                name: "山本由美",
+                role: "現恋人・38歳・女優",
+                profile: "藤堂の現在の恋人。売れない女優で、藤堂の援助で生活していた。",
+                motive: "藤堂の浮気を知り、別れを切り出したところ、それまでの援助金の返還を求められた。さらに、藤堂は「お前のスキャンダルをマスコミに流す」と脅していた。",
+                arrival: "23:05到着",
+                alibi: "23:05にホテル到着。エレベーターで最上階へ向かう途中、23:05に白石から「藤堂が応答しない」と聞き、一緒に書斎へ。23:07に遺体を発見。",
                 questions: [
                     {
-                        q: "23:00から23:05の間の状況を教えてください",
-                        a: "リビングで待っていました。水野さん、黒木さん、佐藤さんと一緒です。田中さんだけが途中でいなくなって...なんか様子がおかしかったです。",
-                        evidence: "他の証言と一致。山本のアリバイは確実。"
-                    }
-                ]
-            },
-            {
-                id: "kuroki",
-                name: "黒木誠",
-                role: "顧問弁護士・45歳",
-                image: "Kuroki2.png",
-                profile: "相澤の会社の顧問弁護士として10年間勤務。中央大学法学部卒業後、大手法律事務所を経て独立。法律の抜け穴を巧みに使った強引な手法で知られ、相澤の「汚れ仕事」を一手に引き受けてきた。冷徹で計算高い性格だが、最近は相澤の無茶な要求に辟易していた。弁護士としてのプライドは高く、違法行為の責任を押し付けられることだけは絶対に許せない。",
-                motive: "相澤の違法行為に加担してきたが、最近相澤が「全ての責任を黒木に押し付ける」計画を立てていることを知る。このままでは弁護士資格を剥奪され、刑務所行きになる。",
-                arrival: "22:35到着",
-                alibi: "22:35到着後、リビングで待機。23:30-24:00の面談予定。23:00-23:05の間、水野、佐藤、山本とリビングで待機。4人一緒にいたため、アリバイあり。",
-                questions: [
+                        q: "到着した時の状況を教えてください",
+                        a: "エレベーターから降りたら、白石さんがちょうど書斎の前にいて...「藤堂さんが応答しない」と言うので、一緒にドアを開けたんです。そうしたら...",
+                        evidence: "エレベーター記録で山本の到着は23:05で確認。白石の証言とも一致。"
+                    },
                     {
-                        q: "23:00から23:05の間、田中さんはどこにいましたか?",
-                        a: "田中さんは...23:00過ぎにいなくなって、23:03頃に戻ってきました。顔色が悪かったですね。",
-                        evidence: "決定的な証言。田中が23:00-23:03の約3分間不在だったことを証言。犯行に必要な時間と一致。"
+                        q: "なぜ遅刻したのですか?",
+                        a: "仕事が押してしまって...。本当は22:00に来る予定だったんですが、撮影が延びてしまいました。",
+                        evidence: "山本のスマホGPS記録で、23:00まで撮影スタジオにいたことが確認できる。"
                     }
                 ]
             }
@@ -1159,31 +829,31 @@
                 <div class="detail-section">
                     <h3>事件の概要</h3>
                     <div class="victim-info">
-                        <p><strong>被害者:</strong> 相澤隆一（38歳）IT企業社長</p>
-                        <p><strong>死亡推定時刻:</strong> 午後11時00分（±3分以内）</p>
+                        <p><strong>被害者:</strong> 藤堂健一郎（52歳）IT企業社長</p>
+                        <p><strong>死亡推定時刻:</strong> 午後11時00分（±5分以内）</p>
                         <p><strong>死因:</strong> 首を絞められたことによる窒息死</p>
                         <p><strong>凶器:</strong> 被害者が身につけていたネクタイ</p>
-                        <p><strong>発見状況:</strong> 23:05に書斎で水野美咲が発見</p>
+                        <p><strong>発見状況:</strong> 23:07に書斎で白石さくらと山本由美が発見</p>
                     </div>
 
                     <h3>重要な証拠</h3>
                     <p>・犯行時刻は<strong>23:00-23:05の5分間</strong>に限定される</p>
-                    <p>・水野が23:05に書斎を訪れた時は既に死亡していた</p>
-                    <p>・犯行には約3分必要（首を絞める+逃走）</p>
+                    <p>・白石が23:05に書斎をノックした時は既に死亡していた</p>
+                    <p>・犯行には約2-3分必要（首を絞める+逃走）</p>
                     <p>・書斎への出入りは玄関ホールから直接可能</p>
 
                     <h3>タイムライン</h3>
                     <div class="timeline">
-                        <div class="timeline-item"><strong>22:00</strong> - 水野到着、書斎で面談開始</div>
-                        <div class="timeline-item"><strong>22:15</strong> - 麻衣到着、リビングで待機</div>
-                        <div class="timeline-item"><strong>22:20</strong> - 田中到着、リビングで待機</div>
-                        <div class="timeline-item"><strong>22:30</strong> - 佐藤到着、水野がリビングへ移動</div>
-                        <div class="timeline-item"><strong>22:30-23:00</strong> - 麻衣と面談（書斎）</div>
-                        <div class="timeline-item"><strong>22:35</strong> - 黒木到着、リビングで待機</div>
-                        <div class="timeline-item"><strong>22:40</strong> - 山本到着、リビングで待機</div>
-                        <div class="timeline-item"><strong>23:00</strong> - 麻衣退室・帰宅、相澤が書斎へ移動</div>
+                        <div class="timeline-item"><strong>22:00</strong> - 高橋到着、書斎で面談開始</div>
+                        <div class="timeline-item"><strong>22:15</strong> - 森田到着、リビングで待機</div>
+                        <div class="timeline-item"><strong>22:30</strong> - 高橋退室、森田との面談開始（リビング）</div>
+                        <div class="timeline-item"><strong>22:35</strong> - 高橋、ホテルバーで目撃（アリバイ確定）</div>
+                        <div class="timeline-item"><strong>22:45</strong> - 白石到着、リビングで待機</div>
+                        <div class="timeline-item"><strong>22:50</strong> - 北川到着、リビングで待機</div>
+                        <div class="timeline-item"><strong>23:00</strong> - 藤堂、リビングから書斎へ移動</div>
                         <div class="timeline-item" style="color: var(--accent-red);"><strong>23:00-23:05</strong> - <strong>犯行発生</strong></div>
-                        <div class="timeline-item"><strong>23:05</strong> - 水野が書斎を訪れ遺体発見</div>
+                        <div class="timeline-item"><strong>23:05</strong> - 山本到着、白石が書斎をノック（返事なし）</div>
+                        <div class="timeline-item"><strong>23:07</strong> - 白石と山本が書斎を開け遺体発見</div>
                     </div>
 
                     <button class="question-btn" onclick="showFloorPlan()" style="width: 100%; margin-top: 20px;">間取り図を確認する</button>
@@ -1217,14 +887,14 @@
                                 </div>
                                 <div class="room">
                                     <div class="room-name">リビング</div>
-                                    <div class="room-detail">待機場所</div>
+                                    <div class="room-detail">面談場所</div>
                                 </div>
                                 <div class="room">
                                     <div class="room-name">バルコニー</div>
                                 </div>
                             </div>
                             <div class="floor-row">
-                                <div class="room" style="min-width: 320px;">
+                                <div class="room" style="grid-column: span 2;">
                                     <div class="room-name">寝室</div>
                                 </div>
                                 <div class="room">
@@ -1237,10 +907,10 @@
                     <div class="alibi-box" style="margin-top: 30px;">
                         <h4 style="color: var(--accent-gold); margin-bottom: 10px;">重要ポイント</h4>
                         <p>・玄関ホールから書斎とリビングへ直接アクセス可能</p>
-                        <p>・リビングから玄関ホール経由で書斎まで徒歩約20秒</p>
-                        <p>・往復で約40秒 + 犯行3分 = 合計約4-5分</p>
-                        <p>・23:00の時点でリビングには田中、水野、佐藤、山本、黒木の5人</p>
-                        <p>・この中で23:00-23:05の間に不在だったのは田中のみ</p>
+                        <p>・玄関ホールから書斎まで徒歩約20秒</p>
+                        <p>・リビングから書斎まで徒歩約20秒</p>
+                        <p>・トイレはリビングの隣（間取り図には未表示）</p>
+                        <p>・23:00の時点でリビングには森田、白石、北川の3人がいた</p>
                     </div>
                 </div>
             `
@@ -1253,68 +923,6 @@
             discoveredEvidence: new Set(),
             selectedSuspect: null
         };
-
-        // BGM管理
-        let currentBGM = null;
-        let isMuted = false;
-
-        function initBGM() {
-            currentBGM = document.getElementById('defaultBGM');
-            currentBGM.volume = 0.5;
-
-            // ユーザー操作後に再生
-            document.body.addEventListener('click', function initAudio() {
-                if (currentBGM && currentBGM.paused) {
-                    currentBGM.play().catch(e => console.log('BGM再生エラー:', e));
-                }
-                document.body.removeEventListener('click', initAudio);
-            }, { once: true });
-
-            // ボリュームスライダー
-            document.getElementById('volumeSlider').addEventListener('input', function() {
-                const volume = this.value / 100;
-                if (currentBGM) currentBGM.volume = volume;
-                document.getElementById('volumeLabel').textContent = this.value + '%';
-            });
-        }
-
-        function toggleBGMPanel() {
-            const control = document.getElementById('bgmControl');
-            control.classList.toggle('collapsed');
-            control.classList.toggle('expanded');
-        }
-
-        function toggleMute() {
-            isMuted = !isMuted;
-            if (currentBGM) currentBGM.muted = isMuted;
-
-            const btn = document.getElementById('muteBtn');
-            const text = document.getElementById('muteText');
-
-            if (isMuted) {
-                btn.classList.add('muted');
-                text.textContent = '🔇 OFF';
-            } else {
-                btn.classList.remove('muted');
-                text.textContent = '🔊 ON';
-            }
-        }
-
-        function changeBGM(bgmId, title) {
-            if (currentBGM) {
-                currentBGM.pause();
-                currentBGM.currentTime = 0;
-            }
-
-            currentBGM = document.getElementById(bgmId);
-            if (currentBGM) {
-                currentBGM.volume = document.getElementById('volumeSlider').value / 100;
-                currentBGM.muted = isMuted;
-                currentBGM.play().catch(e => console.log('BGM再生エラー:', e));
-            }
-
-            document.getElementById('nowPlaying').textContent = title;
-        }
 
         // 証拠を追加
         function addEvidence(title, description) {
@@ -1338,7 +946,6 @@
             document.getElementById('introScreen').style.display = 'none';
             document.getElementById('gameScreen').style.display = 'block';
 
-            initBGM();
             renderSuspectCards();
             showSuspectDetail("case");
         }
@@ -1378,16 +985,6 @@
                 `;
                 grid.appendChild(card);
             });
-
-            // 告発カード（赤色で強調）
-            const accusationCard = document.createElement('div');
-            accusationCard.className = 'suspect-card accusation-card';
-            accusationCard.onclick = () => openAccusationModal();
-            accusationCard.innerHTML = `
-                <div class="suspect-name">告発</div>
-                <div class="suspect-role">犯人を指名</div>
-            `;
-            grid.appendChild(accusationCard);
         }
 
         // 容疑者詳細表示
@@ -1431,15 +1028,11 @@
             questionsHTML += '</div>';
 
             mainPanel.innerHTML = `
-                <div class="suspect-header">
-                    <img src="${suspect.image}" alt="${suspect.name}" class="character-portrait">
-                    <div class="suspect-header-info">
-                        <h2>${suspect.name}</h2>
-                        <div class="suspect-header-section">
-                            <h3>プロフィール</h3>
-                            <p>${suspect.profile}</p>
-                        </div>
-                    </div>
+                <h2 class="panel-title">${suspect.name}</h2>
+
+                <div class="detail-section">
+                    <h3>プロフィール</h3>
+                    <p>${suspect.profile}</p>
                 </div>
 
                 <div class="detail-section">
@@ -1483,14 +1076,12 @@
             showSuspectDetail('floor');
             document.querySelectorAll('.suspect-card').forEach((card, index) => {
                 card.classList.remove('active');
-                if (index === 1) card.classList.add('active');
+                if (index === 1) card.classList.add('active'); // 間取り図カードを選択状態に
             });
         }
 
         // 告発モーダル
         function openAccusationModal() {
-            changeBGM('accusationBGM', '解決のテーマ');
-
             const modal = document.getElementById('accusationModal');
             const optionsDiv = document.getElementById('suspectOptions');
 
@@ -1500,7 +1091,6 @@
                 option.className = 'suspect-option';
                 option.onclick = () => selectSuspectForAccusation(suspect.id);
                 option.innerHTML = `
-                    <img src="${suspect.image}" alt="${suspect.name}" class="suspect-option-image">
                     <div class="suspect-option-name">${suspect.name}</div>
                     <div class="suspect-option-role">${suspect.role}</div>
                 `;
@@ -1514,7 +1104,6 @@
         function closeAccusationModal() {
             document.getElementById('accusationModal').style.display = 'none';
             gameState.selectedSuspect = null;
-            changeBGM('defaultBGM', '深怪な謎');
         }
 
         function selectSuspectForAccusation(suspectId) {
@@ -1529,120 +1118,91 @@
                 return;
             }
 
-            console.log('submitAccusation - selectedSuspect:', gameState.selectedSuspect);
-
-            // 選択された容疑者を保存してからモーダルを閉じる
-            const selectedSuspectId = gameState.selectedSuspect;
-            document.getElementById('accusationModal').style.display = 'none';
-
-            showResult(selectedSuspectId === 'tanaka', selectedSuspectId);
+            closeAccusationModal();
+            showResult(gameState.selectedSuspect === 'morita');
         }
 
         // 結果表示
-        function showResult(isCorrect, selectedSuspectId) {
-            console.log('showResult called, isCorrect:', isCorrect, 'selectedSuspectId:', selectedSuspectId);
-
-            // 全画面を非表示
-            const introScreen = document.getElementById('introScreen');
-            const gameScreen = document.getElementById('gameScreen');
+        function showResult(isCorrect) {
+            document.getElementById('gameScreen').style.display = 'none';
             const resultScreen = document.getElementById('resultScreen');
+            resultScreen.style.display = 'block';
 
-            if (introScreen) introScreen.style.display = 'none';
-            if (gameScreen) gameScreen.style.display = 'none';
-
-            // 結果画面を表示
-            if (resultScreen) {
-                resultScreen.classList.add('active');
-                resultScreen.style.display = 'block';
-                console.log('resultScreen display set to block');
-            } else {
-                console.error('resultScreen not found');
-                return;
-            }
-
-            const selectedSuspect = suspects.find(s => s.id === selectedSuspectId);
-            console.log('selectedSuspect:', selectedSuspect);
-
-            if (!selectedSuspect) {
-                console.error('selectedSuspect not found for id:', selectedSuspectId);
-                alert('エラーが発生しました。もう一度お試しください。');
-                return;
-            }
+            const selectedSuspect = suspects.find(s => s.id === gameState.selectedSuspect);
 
             if (isCorrect) {
-                console.log('Correct answer - changing to clearBGM');
-                changeBGM('clearBGM', '栄光のファンファーレ');
-
                 resultScreen.innerHTML = `
                     <h2 class="result-title success">正解!</h2>
                     <div class="explanation">
-                        <p>あなたは見事、真犯人<strong>田中健太</strong>を突き止めました!</p>
+                        <p>あなたは見事、真犯人<strong>森田誠</strong>を突き止めました!</p>
 
                         <h3>事件の真相</h3>
-                        <p>犯人は<strong>田中健太</strong>。彼は相澤に会社資金流用の罪を押し付けられそうになり、相澤を殺害して証拠隠滅を図りました。</p>
+                        <p>犯人は<strong>森田誠</strong>。彼は藤堂に技術を盗まれ、人生を破壊された恨みを持っていました。</p>
 
                         <h3>犯行の詳細</h3>
                         <div class="timeline">
-                            <div class="timeline-item"><strong>22:30-23:00</strong> - 相澤は麻衣と書斎で面談中</div>
-                            <div class="timeline-item"><strong>23:00</strong> - 麻衣が退室、相澤が書斎に残る</div>
-                            <div class="timeline-item"><strong>23:00-23:03</strong> - 田中がリビングから書斎へ移動</div>
-                            <div class="timeline-item"><strong>23:00-23:03</strong> - 書斎で相澤のネクタイで首を絞めて殺害</div>
-                            <div class="timeline-item"><strong>23:03</strong> - 田中がリビングへ戻る（黒木が目撃）</div>
-                            <div class="timeline-item"><strong>23:05</strong> - 水野が書斎を訪れ遺体発見</div>
+                            <div class="timeline-item"><strong>22:30-23:00</strong> - リビングで藤堂と面談。技術返還を求めるが拒否される</div>
+                            <div class="timeline-item"><strong>23:00</strong> - 藤堂が次の面談のため書斎へ移動</div>
+                            <div class="timeline-item"><strong>23:00-23:02</strong> - 森田、怒りを抑えきれず藤堂を追って書斎へ</div>
+                            <div class="timeline-item"><strong>23:02-23:04</strong> - 書斎で口論の末、藤堂のネクタイで首を絞めて殺害</div>
+                            <div class="timeline-item"><strong>23:04-23:05</strong> - 森田、リビングへ戻る（北川が不在に気づく）</div>
+                            <div class="timeline-item"><strong>23:05</strong> - 白石が書斎をノック（この時点で既に死亡）</div>
                         </div>
 
                         <h3>決定的な証拠</h3>
-                        <p>・<strong>水野の証言</strong>: 「田中さんが23:00過ぎに5分くらいいなくなった」</p>
-                        <p>・<strong>黒木の証言</strong>: 「田中さんは23:03頃に戻ってきた。顔色が悪かった」</p>
-                        <p>・<strong>佐藤、山本の証言</strong>: 田中の不在を裏付け</p>
-                        <p>・<strong>時間的条件</strong>: リビング→書斎20秒、犯行3分、書斎→リビング20秒 = 約4分</p>
-                        <p>・<strong>動機</strong>: 会社資金流用の罪を押し付けられそうになっていた</p>
+                        <p>・<strong>北川の証言</strong>: 「森田が23:00過ぎに一瞬いなくなった。5分もしないで戻ってきた」</p>
+                        <p>・<strong>白石の証言</strong>: 「森田さんが23:00過ぎに少し席を外したような...」（曖昧ながら裏付け）</p>
+                        <p>・<strong>時間的条件</strong>: 犯行可能な時間帯(23:00-23:05)にアリバイがないのは森田のみ</p>
+                        <p>・<strong>動機</strong>: 技術を盗まれ、人生を破壊された強い恨み</p>
+                        <p>・<strong>機会</strong>: リビングから書斎まで20秒、犯行に2-3分、往復で合計5分以内</p>
 
                         <h3>他の容疑者のアリバイ</h3>
-                        <p>・<strong>水野美咲</strong>: 23:00-23:05リビングで黒木、山本、佐藤と共に待機</p>
-                        <p>・<strong>相澤麻衣</strong>: 23:01にエレベーターで帰宅、タクシー記録で完全アリバイ</p>
-                        <p>・<strong>佐藤優子</strong>: リビングで他の3人と共に待機</p>
-                        <p>・<strong>山本大輔</strong>: リビングで他の3人と共に待機</p>
-                        <p>・<strong>黒木誠</strong>: リビングで他の3人と共に待機、田中の不在を証言</p>
+                        <p>・<strong>高橋麗子</strong>: 22:35からホテルバーで目撃（完全アリバイ）</p>
+                        <p>・<strong>白石さくら</strong>: 23:05に書斎をノック、山本と共に発見（犯行不可能）</p>
+                        <p>・<strong>北川隆史</strong>: 23:00-23:07リビングで待機（森田の不在を証言）</p>
+                        <p>・<strong>山本由美</strong>: 23:05到着（犯行時刻にホテルにいない）</p>
 
                         <p style="margin-top: 30px; text-align: center; font-size: 1.2em; color: var(--accent-gold);">
-                            おめでとうございます! あなたは優秀な探偵です!
+                            おめでとうございます!あなたは優秀な探偵です!
                         </p>
                     </div>
                     <button class="restart-btn" onclick="location.reload()">もう一度プレイする</button>
                 `;
             } else {
-                console.log('Wrong answer - changing to default BGM');
-                changeBGM('defaultBGM', '深怪な謎');
                 resultScreen.innerHTML = `
                     <h2 class="result-title failure">不正解...</h2>
                     <div class="explanation">
                         <p>あなたは<strong>${selectedSuspect.name}</strong>を告発しましたが、それは間違いでした。</p>
 
-                        <h3>もう一度調査してみましょう</h3>
-                        <p>証拠や証言をもう一度よく確認してください。</p>
-                        <p>特に以下のポイントに注目してみましょう：</p>
-                        <ul style="text-align: left; display: inline-block; margin: 20px 0;">
-                            <li>死亡推定時刻は23:00（±3分）</li>
-                            <li>各容疑者のアリバイと証言を照合する</li>
-                            <li>犯行に必要な時間と移動時間を計算する</li>
-                            <li>他の容疑者の証言で裏付けられているか確認する</li>
-                        </ul>
+                        <h3>真犯人は...</h3>
+                        <p><strong>森田誠</strong>でした。</p>
+
+                        <h3>見逃した証拠</h3>
+                        <p>決定的だったのは<strong>北川の証言</strong>です。</p>
+                        <p>「森田が23:00過ぎに一瞬いなくなった。5分もしないで戻ってきた」</p>
+
+                        <p>この証言により、犯行可能時間帯(23:00-23:05)に森田のアリバイがないことが確定します。</p>
+
+                        <h3>森田の犯行</h3>
+                        <div class="timeline">
+                            <div class="timeline-item"><strong>23:00</strong> - 藤堂が書斎へ移動</div>
+                            <div class="timeline-item"><strong>23:00-23:02</strong> - 森田が追って書斎へ</div>
+                            <div class="timeline-item"><strong>23:02-23:04</strong> - 犯行</div>
+                            <div class="timeline-item"><strong>23:04-23:05</strong> - リビングへ戻る</div>
+                        </div>
+
+                        <p>リビングから書斎まで往復40秒+犯行時間2-3分=合計約5分。</p>
+                        <p>これが北川の証言「5分もしないで戻ってきた」と完全に一致します。</p>
 
                         <p style="margin-top: 30px; text-align: center; font-size: 1.1em;">
-                            諦めずにもう一度挑戦してみましょう！
+                            もう一度挑戦してみましょう!
                         </p>
                     </div>
                     <button class="restart-btn" onclick="location.reload()">もう一度プレイする</button>
                 `;
             }
 
-            // DOMが更新されてからスクロール
-            console.log('Setting up scroll to result screen');
-            setTimeout(() => {
-                window.scrollTo({ top: 0, behavior: 'smooth' });
-                console.log('Scrolled to top');
-            }, 200);
+            resultScreen.scrollIntoView({ behavior: 'smooth' });
         }
 
         // モーダル外クリックで閉じる
